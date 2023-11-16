@@ -26,7 +26,7 @@ vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.clipboard = 'unnamedplus' -- Use Linux system clipboard
 vim.opt.confirm = true -- ask for confirmation instead of erroring
-vim.opt.undofile = true -- persistent undo
+vim.opt.undofile = false -- persistent undo
 vim.opt.backup = true -- automatically save a backup file
 vim.opt.backupdir:remove('.') -- keep backups out of the current directory
 --vim.opt.shortmess:append({ I = true }) -- disable the splash screen

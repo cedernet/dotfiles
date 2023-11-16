@@ -59,3 +59,7 @@ vim.api.nvim_set_keymap('n', '>', ']', {})
 -- Remove all trailing whitespace
 vim.keymap.set('n', '<leader>å', ":%s/\\s\\+$//e<CR>")
 
+-- Tab switching easier
+-- NOTE: Can't get this to work
+-- vim.keymap.set('n', '<C-h>', '[b')
+-- vim.keymap.set('n', '<C-l>', ']b')
