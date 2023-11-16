@@ -51,7 +51,7 @@ require("lazy").setup({
 	-- Allow plugins to enable repeating of commands.
 	{ 'tpope/vim-repeat' },
 	-- Navigate seamlessly between Vim windows and Tmux panes.
-	{ 'christoomey/vim-tmux-navigator' },
+	-- { 'christoomey/vim-tmux-navigator' },
 	-- Jump to the last location when opening a file.
 	{ 'farmergreg/vim-lastplace' },
 	-- Enable * searching with visually selected text.
@@ -99,6 +99,8 @@ require("lazy").setup({
 	{ import = 'user.plugins.cmp' },
 	-- Language Server Protocol.
 	{ import = 'user.plugins.lspconfig' },
+	-- PHP Refactoring Tools
+	{ import = 'user.plugins.phpactor' },
 }, {
 	checker = {
 		enabled = true,
