@@ -22,14 +22,22 @@ require("lazy").setup({
 	-- 	end
 	-- },
 	-- Monokai theme
-	-- {
-	-- 	'tanvirtin/monokai.nvim',
-	-- 	priority = 1000,
-	-- 	config = function(plugin, opts)
-	-- 		require("monokai").setup()
-	-- 		vim.cmd('colorscheme monokai_pro')
-	-- 	end
-	-- },
+	{
+		'ellisonleao/gruvbox.nvim',
+		-- priority = 1000,
+		config = function(plugin, opts)
+			require("gruvbox").setup()
+			-- vim.cmd('colorscheme gruvbox')
+		end
+	},
+	{
+		'sainnhe/gruvbox-material',
+		priority = 1000,
+		config = function(plugin, opts)
+			-- require("gruvbox-material").setup()
+			vim.cmd('colorscheme gruvbox-material')
+		end
+	},
 	-- Color scheme
 	{ import = 'user.plugins.tokyonight' },
 	-- Commenting support.
@@ -63,7 +71,8 @@ require("lazy").setup({
 	-- Split arrays and methods onto multiple lines, or join them back up.
 	{ import = 'user.plugins.treesj' },
 	-- Automatically fix indentation when pasting code.
-	{ import = 'user.plugins.vim-pasta' },
+	-- TODO: Won't allow keymaps work with '_dp'. See if can be fixed.
+	-- { import = 'user.plugins.vim-pasta' },
 	-- Improved syntax highlighting
 	{ import = 'user.plugins.treesitter' },
 	-- Disable backgrounds to make vim transparent
@@ -82,6 +91,14 @@ require("lazy").setup({
 	{ import = 'user.plugins.dashboard-nvim' },
 	-- Git integration.
 	{ import = 'user.plugins.gitsigns' },
+	-- Git commands.
+	{ 'tpope/vim-fugitive', dependencies = 'tpope/vim-rhubarb' },
+	--- Floating terminal.
+	{ import = 'user.plugins.floaterm' },
+	-- Completion
+	{ import = 'user.plugins.cmp' },
+	-- Language Server Protocol.
+	{ import = 'user.plugins.lspconfig' },
 }, {
 	checker = {
 		enabled = true,

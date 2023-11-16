@@ -27,6 +27,13 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
 -- Paste replace visual selection without copying it.
 vim.keymap.set('v', 'p', '"_dP')
 vim.keymap.set('v', 'd', '"_d')
+vim.keymap.set('n', 'd', '"_d')
+vim.keymap.set('n', 'D', '"_D')
+-- vim.keymap.set('v', 'p', '"0p')
+-- vim.keymap.set('v', 'P', '"0P')
+-- vim.keymap.set('v', 'y', '"0y')
+-- vim.keymap.set('v', 'd', '"0d')
+
 -- Easy insertion of a trailing ; or , from insert mode.
 vim.keymap.set('i', ';;', '<Esc>A;<Esc>')
 vim.keymap.set('i', ',,', '<Esc>A,<Esc>')
@@ -45,10 +52,10 @@ vim.keymap.set('n', '<C-Up>', ':move .-2<CR>==')
 vim.keymap.set('v', '<C-Down>', ":move '>+1<CR>gv=gv")
 vim.keymap.set('v', '<C-Up>', ":move '<-2<CR>gv=gv")
 
+-- I don't have a US keyboard
 vim.api.nvim_set_keymap('n', '<', '[', {})
 vim.api.nvim_set_keymap('n', '>', ']', {})
--- vim.keymap.set('o', '<', '[')
--- vim.keymap.set('o', '>', ']')
--- vim.keymap.set('x', '<', '[')
--- vim.keymap.set('x', '<', '[')
+
+-- Remove all trailing whitespace
+vim.keymap.set('n', '<leader>å', ":%s/\\s\\+$//e<CR>")
 

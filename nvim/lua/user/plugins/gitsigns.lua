@@ -8,6 +8,7 @@ return {
     { 'gS', ':Gitsigns undo_stage_hunk<CR>'},
     { 'gp', ':Gitsigns preview_hunk<CR>'},
     { 'gb', ':Gitsigns blame_line<CR>'},
+	{ 'gr', ':Gitsigns reset_hunk<CR>' },
   },
   opts = {
     preview_config = {
