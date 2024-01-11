@@ -13,29 +13,20 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	-- Monokai-pro theme
-	-- {
-	-- 	'loctvl842/monokai-pro.nvim',
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("monokai-pro").setup()
-	-- 		vim.cmd('colorscheme monokai-pro')
-	-- 	end
-	-- },
-	-- Monokai theme
 	{
-		'ellisonleao/gruvbox.nvim',
-		-- priority = 1000,
-		config = function(plugin, opts)
-			require("gruvbox").setup()
-			-- vim.cmd('colorscheme gruvbox')
+		'loctvl842/monokai-pro.nvim',
+		priority = 1000,
+		config = function()
+			require("monokai-pro").setup()
+			vim.cmd('colorscheme monokai-pro')
 		end
 	},
 	{
 		'sainnhe/gruvbox-material',
-		priority = 1000,
+		-- priority = 1000,
 		config = function(plugin, opts)
 			-- require("gruvbox-material").setup()
-			vim.cmd('colorscheme gruvbox-material')
+			-- vim.cmd('colorscheme gruvbox-material')
 		end
 	},
 	-- Color scheme
@@ -47,10 +38,12 @@ require("lazy").setup({
 	-- Useful commands like :Rename and :SudoWrite.
 	{ 'tpope/vim-eunuch' },
 	-- Pairs of handy bracket mappings, like [b and ]b.
-	{ 'tpope/vim-unimpaired', event = 'VeryLazy' },
+	-- NOTE: Made more sense to make my own keymaps
+	-- { 'tpope/vim-unimpaired', event = 'VeryLazy' },
 	-- Allow plugins to enable repeating of commands.
 	{ 'tpope/vim-repeat' },
 	-- Navigate seamlessly between Vim windows and Tmux panes.
+	-- NOTE: I'm not sure if I'm going to use tmux
 	-- { 'christoomey/vim-tmux-navigator' },
 	-- Jump to the last location when opening a file.
 	{ 'farmergreg/vim-lastplace' },
@@ -93,7 +86,7 @@ require("lazy").setup({
 	{ import = 'user.plugins.gitsigns' },
 	-- Git commands.
 	{ 'tpope/vim-fugitive', dependencies = 'tpope/vim-rhubarb' },
-	--- Floating terminal.
+	-- Floating terminal.
 	{ import = 'user.plugins.floaterm' },
 	-- Completion
 	{ import = 'user.plugins.cmp' },
@@ -101,6 +94,12 @@ require("lazy").setup({
 	{ import = 'user.plugins.lspconfig' },
 	-- PHP Refactoring Tools
 	{ import = 'user.plugins.phpactor' },
+	-- Harpoon file jumper
+	{ import = 'user.plugins.harpoon' },
+	-- Show overview of code on page
+	{ import = 'user.plugins.aerial' },
+	-- Sublime style multicursor
+	{ import = 'user.plugins.multicursors' },
 }, {
 	checker = {
 		enabled = true,
@@ -111,8 +110,7 @@ require("lazy").setup({
 	},
 	install = {
 		colorscheme = {
-			"monokai",
-			"tokyonight",
+			"gruvbox-material",
 			"habamax",
 		},
 	},

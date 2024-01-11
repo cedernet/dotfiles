@@ -58,6 +58,7 @@ return {
 						"PDO",
 						"pdo_mysql",
 						"Phar",
+						"random",
 						"readline",
 						"regex",
 						"session",
@@ -153,6 +154,19 @@ return {
 					schemas = require('schemastore').json.schemas(),
 				},
 			},
+		})
+
+		-- Emmet
+		require('lspconfig').emmet_ls.setup({
+			capabilities = capabilities,
+			filetypes = { "css", "php", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+			init_options = {
+				html = {
+					options = {
+						["bem.enabled"] = true,
+					}
+				}
+			}
 		})
 
 		-- null-ls

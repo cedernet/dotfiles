@@ -29,6 +29,7 @@ vim.keymap.set('v', 'p', '"_dP')
 vim.keymap.set('v', 'd', '"_d')
 vim.keymap.set('n', 'd', '"_d')
 vim.keymap.set('n', 'D', '"_D')
+vim.keymap.set('n', 'c', '"_c')
 -- vim.keymap.set('v', 'p', '"0p')
 -- vim.keymap.set('v', 'P', '"0P')
 -- vim.keymap.set('v', 'y', '"0y')
@@ -60,6 +61,13 @@ vim.api.nvim_set_keymap('n', '>', ']', {})
 vim.keymap.set('n', '<leader>å', ":%s/\\s\\+$//e<CR>")
 
 -- Tab switching easier
--- NOTE: Can't get this to work
--- vim.keymap.set('n', '<C-h>', '[b')
--- vim.keymap.set('n', '<C-l>', ']b')
+vim.keymap.set('n', '<C-h>', ':bprevious<CR>')
+vim.keymap.set('n', '<C-l>', ':bnext<CR>')
+
+-- Pane switching easier
+vim.keymap.set('n', '<leader>h', ':wincmd h<CR>')
+vim.keymap.set('n', '<leader>l', ':wincmd l<CR>')
+
+-- Jump over char in insert mode
+vim.keymap.set('i', '<C-space>', '<right>')
+
