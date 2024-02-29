@@ -21,38 +21,23 @@ require("lazy").setup({
 			vim.cmd('colorscheme monokai-pro')
 		end
 	},
-	{
-		'sainnhe/gruvbox-material',
-		-- priority = 1000,
-		config = function(plugin, opts)
-			-- require("gruvbox-material").setup()
-			-- vim.cmd('colorscheme gruvbox-material')
-		end
-	},
-	-- Color scheme
-	{ import = 'user.plugins.tokyonight' },
+	-- {
+	-- 	'sainnhe/gruvbox-material',
+	-- 	priority = 1000,
+	-- 	config = function(plugin, opts)
+	-- 		require("gruvbox-material").setup()
+	-- 		vim.cmd('colorscheme gruvbox-material')
+	-- 	end
+	-- },
+	-- { import = 'userrplugins.tokyonight' },
 	-- Commenting support.
 	{ import = 'user.plugins.vim-commentary' },
 	-- Add, change, and delete surrounding text.
 	{ 'tpope/vim-surround' },
-	-- Useful commands like :Rename and :SudoWrite.
-	{ 'tpope/vim-eunuch' },
-	-- Pairs of handy bracket mappings, like [b and ]b.
-	-- NOTE: Made more sense to make my own keymaps
-	-- { 'tpope/vim-unimpaired', event = 'VeryLazy' },
 	-- Allow plugins to enable repeating of commands.
 	{ 'tpope/vim-repeat' },
-	-- Navigate seamlessly between Vim windows and Tmux panes.
-	-- NOTE: I'm not sure if I'm going to use tmux
-	-- { 'christoomey/vim-tmux-navigator' },
 	-- Jump to the last location when opening a file.
 	{ 'farmergreg/vim-lastplace' },
-	-- Enable * searching with visually selected text.
-	{ 'nelstrom/vim-visual-star-search' },
-	-- Automatically create parent dirs when saving.
-	{ 'jessarcher/vim-heritage' },
-	-- Text objects for HTML attributes.
-	{ 'whatyouhide/vim-textobj-xmlattr', dependencies = 'kana/vim-textobj-user'  },
 	-- Automatically set the working directory to the project root.
 	{ import = 'user.plugins.vim-rooter' },
 	-- Automatically add closing brackets, quotes, etc.
@@ -63,13 +48,10 @@ require("lazy").setup({
 	{ import = 'user.plugins.bufdelete' },
 	-- Split arrays and methods onto multiple lines, or join them back up.
 	{ import = 'user.plugins.treesj' },
-	-- Automatically fix indentation when pasting code.
-	-- TODO: Won't allow keymaps work with '_dp'. See if can be fixed.
-	-- { import = 'user.plugins.vim-pasta' },
 	-- Improved syntax highlighting
 	{ import = 'user.plugins.treesitter' },
 	-- Disable backgrounds to make vim transparent
-	{ 'xiyaowong/transparent.nvim' },
+	-- { 'xiyaowong/transparent.nvim' },
 	-- Fuzzy finder
 	{ import = 'user.plugins.telescope' },
 	-- File tree
@@ -93,7 +75,7 @@ require("lazy").setup({
 	-- Language Server Protocol.
 	{ import = 'user.plugins.lspconfig' },
 	-- PHP Refactoring Tools
-	{ import = 'user.plugins.phpactor' },
+	-- { import = 'user.plugins.phpactor' },
 	-- Harpoon file jumper
 	{ import = 'user.plugins.harpoon' },
 	-- Show overview of code on page
@@ -110,8 +92,7 @@ require("lazy").setup({
 	},
 	install = {
 		colorscheme = {
-			"gruvbox-material",
-			"habamax",
+			"monokai-pro",
 		},
 	},
 })
