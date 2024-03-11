@@ -71,3 +71,6 @@ vim.keymap.set('n', '<leader>l', ':wincmd l<CR>')
 -- Jump over char in insert mode
 vim.keymap.set('i', '<C-space>', '<right>')
 
+-- Remove windows line breaks
+vim.keymap.set('n', '<leader>M', ':%s/^M//g<CR>');
+

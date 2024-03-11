@@ -40,4 +40,6 @@ vim.opt.exrc = true
 vim.opt.secure = true
 vim.opt.titlestring = '%f // nvim'
 vim.opt.virtualedit = 'onemore'
+vim.opt.foldmethod = 'indent'
+vim.opt.foldlevelstart = 99
 

@@ -18,18 +18,20 @@ require("lazy").setup({
 		priority = 1000,
 		config = function()
 			require("monokai-pro").setup()
-			vim.cmd('colorscheme monokai-pro')
+			vim.cmd('colorscheme monokai-pro-spectrum')
 		end
 	},
 	-- {
-	-- 	'sainnhe/gruvbox-material',
-	-- 	priority = 1000,
-	-- 	config = function(plugin, opts)
-	-- 		require("gruvbox-material").setup()
-	-- 		vim.cmd('colorscheme gruvbox-material')
-	-- 	end
+	-- 	'ribru17/bamboo.nvim',
+	-- 	lazy = false,
+	-- 	priority = 900,
+	-- 	config = function()
+	-- 		require('bamboo').setup {
+	-- 			-- optional configuration here
+	-- 		}
+	-- 		require('bamboo').load()
+	-- 	end,
 	-- },
-	-- { import = 'userrplugins.tokyonight' },
 	-- Commenting support.
 	{ import = 'user.plugins.vim-commentary' },
 	-- Add, change, and delete surrounding text.
@@ -75,13 +77,19 @@ require("lazy").setup({
 	-- Language Server Protocol.
 	{ import = 'user.plugins.lspconfig' },
 	-- PHP Refactoring Tools
-	-- { import = 'user.plugins.phpactor' },
+	{ import = 'user.plugins.phpactor' },
 	-- Harpoon file jumper
 	{ import = 'user.plugins.harpoon' },
 	-- Show overview of code on page
 	{ import = 'user.plugins.aerial' },
 	-- Sublime style multicursor
 	{ import = 'user.plugins.multicursors' },
+	-- PHP docblocks
+	{ 'brett-griffin/phpdocblocks.vim' },
+	-- Better comment
+	{ import = 'user.plugins.better-comments' },
+	-- Easier to use marks/bookmarks
+	{ import = 'user.plugins.marks' },
 }, {
 	checker = {
 		enabled = true,
@@ -92,7 +100,7 @@ require("lazy").setup({
 	},
 	install = {
 		colorscheme = {
-			"monokai-pro",
+			"monokai-pro-spectrum",
 		},
 	},
 })

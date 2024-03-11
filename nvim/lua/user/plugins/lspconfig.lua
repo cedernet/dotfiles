@@ -137,6 +137,13 @@ return {
 				--   vim.lsp.buf.inlay_hint(bufnr, true)
 				-- end
 			end,
+			-- init_options = {
+			-- 	{
+			-- 		typescript = {
+			-- 			tsdk = '/usr/local/lib/node_modules/typescript/lib/'
+			-- 		}
+			-- 	}
+			-- },
 			capabilities = capabilities,
 			-- Enable "Take Over Mode" where volar will provide all JS/TS LSP services
 			-- This drastically improves the responsiveness of diagnostic updates on change
@@ -218,8 +225,8 @@ return {
 		vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
 		vim.keymap.set('n', '<d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 		vim.keymap.set('n', '>d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-		-- vim.keymap.set('n', 'gd', ':Telescope lsp_definitions<CR>')
-		vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+		vim.keymap.set('n', 'gd', ':Telescope lsp_definitions<CR>')
+		vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.definition()<CR>')
 		vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 		vim.keymap.set('n', 'gi', ':Telescope lsp_implementations<CR>')
 		vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>')
