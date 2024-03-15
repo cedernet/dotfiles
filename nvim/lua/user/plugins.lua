@@ -86,8 +86,8 @@ require("lazy").setup({
 	{ import = 'user.plugins.multicursors' },
 	-- PHP docblocks
 	{ 'brett-griffin/phpdocblocks.vim' },
-	-- Better comment
-	{ import = 'user.plugins.better-comments' },
+	-- Better comments
+	{ import = 'user.plugins.todo-comments' },
 	-- Easier to use marks/bookmarks
 	{ import = 'user.plugins.marks' },
 }, {

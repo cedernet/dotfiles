@@ -1,12 +1,14 @@
+-- https://github.com/chentoast/marks.nvim
 return {
 	'chentoast/marks.nvim',
 	config = function()
 		require('marks').setup({
 			force_write_shada = true,
+			marks_signs = false,
 			mappings = {
 				set = "m",
-				set_next = "m,",
-				toggle = "m;",
+				set_next = "m;",
+				toggle = "m,",
 				next = "m>",
 				prev = "m<",
 				preview = "m:",
