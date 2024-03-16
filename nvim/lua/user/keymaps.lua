@@ -76,5 +76,5 @@ vim.keymap.set('n', '<leader>M', ':%s/^M//g<CR>');
 
 -- Remove windows line breaks
 -- NOTE: markz z, goto top, line select, goto bottom, press =, goto z, del mark
-vim.keymap.set('n', '<leader>=', 'mzggVG=`zdm-');
+vim.keymap.set('n', '<leader>=', 'mzggVG=`z<Esc>:delm z<CR>');
 
