@@ -100,10 +100,10 @@ require("lazy").setup(
 		change_detection = {
 			notify = false,
 		},
-		install = {
-			colorscheme = {
-				"monokai-pro-spectrum",
-			},
-		},
+		-- install = {
+		-- 	colorscheme = {
+		-- 		"monokai-pro-spectrum",
+		-- 	},
+		-- },
 	}
 )

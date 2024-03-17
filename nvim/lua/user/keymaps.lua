@@ -3,7 +3,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Quickly clear search highlighting.
-vim.keymap.set('n', '<leader>k', ':nohlsearch<cr>')
+vim.keymap.set('n', 'hl', ':nohlsearch<cr>')
 
 -- close all open buffers.
 vim.keymap.set('n', '<leader>q', ':bufdo bdelete<cr>')
@@ -30,20 +30,10 @@ vim.keymap.set('v', 'd', '"_d')
 vim.keymap.set('n', 'd', '"_d')
 vim.keymap.set('n', 'D', '"_D')
 vim.keymap.set('n', 'c', '"_c')
--- vim.keymap.set('v', 'p', '"0p')
--- vim.keymap.set('v', 'P', '"0P')
--- vim.keymap.set('v', 'y', '"0y')
--- vim.keymap.set('v', 'd', '"0d')
 
 -- Easy insertion of a trailing ; or , from insert mode.
 vim.keymap.set('i', ';;', '<Esc>A;<Esc>')
 vim.keymap.set('i', ',,', '<Esc>A,<Esc>')
-
--- Open the current file in the default program (on Mac this should just be just `open`).
-vim.keymap.set('n', '<leader>x', ':!open %<cr><cr>')
-
--- Disable annoying command line thing.
-vim.keymap.set('n', 'q:', ':q<CR>')
 
 -- Move text up and down
 vim.keymap.set('i', '<C-Down>', '<Esc>:move .+1<CR>==gi')
@@ -67,6 +57,8 @@ vim.keymap.set('n', '<C-l>', ':bnext<CR>')
 -- Pane switching easier
 vim.keymap.set('n', '<leader>h', ':wincmd h<CR>')
 vim.keymap.set('n', '<leader>l', ':wincmd l<CR>')
+vim.keymap.set('n', '<leader>j', ':wincmd j<CR>')
+vim.keymap.set('n', '<leader>k', ':wincmd k<CR>')
 
 -- Jump over char in insert mode
 vim.keymap.set('i', '<C-space>', '<right>')
