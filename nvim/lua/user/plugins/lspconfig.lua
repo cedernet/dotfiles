@@ -19,6 +19,24 @@ return {
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+		-- Lua
+		require('lspconfig').lua_ls.setup({
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = {'vim'}
+					}
+				}
+			}
+		})
+
+		-- Vim Ls
+		-- require('lspconfig').vimls.setup({
+		-- 	filetypes = {
+		-- 		'vim',
+		-- 	},
+		-- })
+
 		-- PHP
 		require('lspconfig').intelephense.setup({
 			commands = {
@@ -194,6 +212,8 @@ return {
 						return utils.root_has_file({ '.eslintrc.js', '.eslintrc.json' })
 					end,
 				}),
+				-- Custom rules https://mlocati.github.io/php-cs-fixer-configurator/#version:3.51
+				-- Documentation https://laravel.com/docs/11.x/pint
 				null_ls.builtins.formatting.pint.with({
 					condition = function(utils)
 						return utils.root_has_file({ 'vendor/bin/pint' })
@@ -230,9 +250,9 @@ return {
 		vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 		vim.keymap.set('n', 'gi', ':Telescope lsp_implementations<CR>')
 		vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>')
-		vim.keymap.set('n', '<Leader>lr', ':LspRestart<CR>', { silent = true })
+		-- vim.keymap.set('n', '<Leader>lr', ':LspRestart<CR>', { silent = true })
 		vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-		vim.keymap.set('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+		-- vim.keymap.set('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
 		-- Commands
 		vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format({ timeout_ms = 5000 }) end, {})
