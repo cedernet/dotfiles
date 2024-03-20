@@ -10,6 +10,7 @@ return {
 		{ 'gp', ':Gitsigns preview_hunk<CR>'},
 		{ 'gR', ':Gitsigns reset_hunk<CR>' },
 		{ 'gb', ':Gitsigns blame_line<CR>'},
+		{ 'gh', ':Gitsigns diff_this<CR>'},
 	},
 	opts = {
 		preview_config = {

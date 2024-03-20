@@ -22,17 +22,23 @@ require("lazy").setup(
 				vim.cmd('colorscheme monokai-pro-spectrum')
 			end
 		},
-		-- {
-		-- 	'ribru17/bamboo.nvim',
-		-- 	lazy = false,
-		-- 	priority = 900,
-		-- 	config = function()
-		-- 		require('bamboo').setup {
-		-- 			-- optional configuration here
-		-- 		}
-		-- 		require('bamboo').load()
-		-- 	end,
-		-- },
+		{
+			'sainnhe/gruvbox-material',
+			-- priority = 800,
+			-- config = function()
+			-- 	require("gruvbox-material").setup()
+			-- 	vim.cmd('colorscheme gruvbox-material')
+			-- end
+		},
+		{
+			'ribru17/bamboo.nvim',
+			lazy = false,
+			priority = 900,
+			config = function()
+				require('bamboo').setup()
+				-- require('bamboo').load()
+			end,
+		},
 		-- Commenting support.
 		{ import = 'user.plugins.vim-commentary' },
 		-- Add, change, and delete surrounding text.
@@ -69,7 +75,7 @@ require("lazy").setup(
 		{ import = 'user.plugins.dashboard-nvim' },
 		-- Git integration.
 		{ import = 'user.plugins.gitsigns' },
-		-- Git commands.
+		-- Git commands. https://github.com/tpope/vim-fugitive
 		{ 'tpope/vim-fugitive', dependencies = 'tpope/vim-rhubarb' },
 		-- Floating terminal.
 		{ import = 'user.plugins.floaterm' },
