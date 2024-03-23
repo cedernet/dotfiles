@@ -14,34 +14,15 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(
 	{
 		-- Monokai-pro theme
-		{
-			'loctvl842/monokai-pro.nvim',
-			priority = 1000,
-			config = function()
-				require("monokai-pro").setup()
-				vim.cmd('colorscheme monokai-pro-spectrum')
-			end
-		},
-		{
-			'sainnhe/gruvbox-material',
-			-- priority = 800,
-			-- config = function()
-			-- 	require("gruvbox-material").setup()
-			-- 	vim.cmd('colorscheme gruvbox-material')
-			-- end
-		},
-		{
-			'ribru17/bamboo.nvim',
-			lazy = false,
-			priority = 900,
-			config = function()
-				require('bamboo').setup()
-				-- require('bamboo').load()
-			end,
-		},
+		{ import = 'user.plugins.monokai-pro' },
+		-- Gruvbox-material theme
+		{ import = 'user.plugins.gruvbox-material' },
+		-- Bamboo theme
+		{ import = 'user.plugins.bamboo' },
 		-- Commenting support.
 		{ import = 'user.plugins.vim-commentary' },
 		-- Add, change, and delete surrounding text.
+		-- https://github.com/tpope/vim-surround
 		{ 'tpope/vim-surround' },
 		-- Allow plugins to enable repeating of commands.
 		{ 'tpope/vim-repeat' },
@@ -97,6 +78,8 @@ require("lazy").setup(
 		{ import = 'user.plugins.todo-comments' },
 		-- Easier to use marks/bookmarks
 		{ import = 'user.plugins.marks' },
+		-- Jump anywhere
+		{ import = 'user.plugins.hop' },
 	},
 	{
 		checker = {

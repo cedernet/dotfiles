@@ -205,13 +205,15 @@ return {
 						return utils.root_has_file({ '.eslintrc.js' })
 					end,
 				}),
-				-- null_ls.builtins.diagnostics.phpstan, -- TODO: Only if config file
+
 				null_ls.builtins.diagnostics.trail_space.with({ disabled_filetypes = { 'NvimTree' } }),
+
 				null_ls.builtins.formatting.eslint_d.with({
 					condition = function(utils)
 						return utils.root_has_file({ '.eslintrc.js', '.eslintrc.json' })
 					end,
 				}),
+
 				-- Custom rules https://mlocati.github.io/php-cs-fixer-configurator/#version:3.51
 				-- Documentation https://laravel.com/docs/11.x/pint
 				null_ls.builtins.formatting.pint.with({
@@ -219,6 +221,7 @@ return {
 						return utils.root_has_file({ 'vendor/bin/pint' })
 					end,
 				}),
+
 				null_ls.builtins.formatting.prettier.with({
 					condition = function(utils)
 						return utils.root_has_file({ '.prettierrc', '.prettierrc.json', '.prettierrc.yml', '.prettierrc.js', 'prettier.config.js' })
