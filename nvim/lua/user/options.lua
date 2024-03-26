@@ -42,4 +42,5 @@ vim.opt.titlestring = '%f // nvim'
 vim.opt.virtualedit = 'onemore'
 vim.opt.foldmethod = 'indent'
 vim.opt.foldlevelstart = 99
+vim.opt.colorcolumn = "80"
 

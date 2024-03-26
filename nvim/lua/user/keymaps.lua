@@ -3,7 +3,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Quickly clear search highlighting.
-vim.keymap.set('n', 'hl', ':nohlsearch<cr>')
+vim.keymap.set('n', '<leader>c', ':nohlsearch<cr>')
 
 -- close all open buffers.
 vim.keymap.set('n', '<leader>q', ':bufdo bdelete<cr>')

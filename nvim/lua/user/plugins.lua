@@ -80,6 +80,8 @@ require("lazy").setup(
 		{ import = 'user.plugins.marks' },
 		-- Jump anywhere
 		{ import = 'user.plugins.hop' },
+		-- Floating project notes
+		{ import = 'user.plugins.flote' },
 	},
 	{
 		checker = {
