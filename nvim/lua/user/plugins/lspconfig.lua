@@ -103,8 +103,8 @@ return {
 					},
 					environment = {
 						-- includePaths = {
-							'/Users/ebbec/.composer/vendor/php-stubs/',
-							'/Users/ebbec/.composer/vendor/wpsyntex/',
+						'/Users/ebbec/.composer/vendor/php-stubs/',
+						'/Users/ebbec/.composer/vendor/wpsyntex/',
 						-- 	'/home/ebbec/.composer/vendor/php-stubs/',
 						-- 	'/home/ebbec/.composer/vendor/wpsyntex/',
 						-- }
@@ -242,6 +242,11 @@ return {
 				}),
 
 				null_ls.builtins.formatting.prettier.with({
+					filetypes = {
+						"javascript",
+						"css",
+						"php"
+					},
 					condition = function(utils)
 						return utils.root_has_file({
 							'.prettierrc',
