@@ -102,7 +102,12 @@ return {
 						"polylang-stubs"
 					},
 					environment = {
-						includePaths = {'/Users/ebbec/.composer/vendor/php-stubs/', '/home/ebbec/.composer/vendor/wpsyntex/'}
+						-- includePaths = {
+							'/Users/ebbec/.composer/vendor/php-stubs/',
+							'/Users/ebbec/.composer/vendor/wpsyntex/',
+						-- 	'/home/ebbec/.composer/vendor/php-stubs/',
+						-- 	'/home/ebbec/.composer/vendor/wpsyntex/',
+						-- }
 					},
 					files = {
 						maxSize = 5000000;
@@ -184,7 +189,21 @@ return {
 		-- Emmet
 		require('lspconfig').emmet_ls.setup({
 			capabilities = capabilities,
-			filetypes = { "css", "php", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+			filetypes = {
+				"css",
+				"php",
+				"eruby",
+				"html",
+				"javascript",
+				"javascriptreact",
+				"less",
+				"sass",
+				"scss",
+				"svelte",
+				"pug",
+				"typescriptreact",
+				"vue",
+			},
 			init_options = {
 				html = {
 					options = {
@@ -224,7 +243,13 @@ return {
 
 				null_ls.builtins.formatting.prettier.with({
 					condition = function(utils)
-						return utils.root_has_file({ '.prettierrc', '.prettierrc.json', '.prettierrc.yml', '.prettierrc.js', 'prettier.config.js' })
+						return utils.root_has_file({
+							'.prettierrc',
+							'.prettierrc.json',
+							'.prettierrc.yml',
+							'.prettierrc.js',
+							'prettier.config.js',
+						})
 					end,
 				}),
 			},
