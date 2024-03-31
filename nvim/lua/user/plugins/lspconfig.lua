@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		'williamboman/mason.nvim',
 		'williamboman/mason-lspconfig.nvim',
+		-- For json stuff
 		'b0o/schemastore.nvim',
 		{ 'jose-elias-alvarez/null-ls.nvim', dependencies = 'nvim-lua/plenary.nvim' },
 		'jayp0521/mason-null-ls.nvim',
@@ -102,12 +103,12 @@ return {
 						"polylang-stubs"
 					},
 					environment = {
-						-- includePaths = {
-						'/Users/ebbec/.composer/vendor/php-stubs/',
-						'/Users/ebbec/.composer/vendor/wpsyntex/',
-						'/home/ebbec/.composer/vendor/php-stubs/',
-						'/home/ebbec/.composer/vendor/wpsyntex/',
-						-- }
+						includePaths = {
+							'/Users/ebbec/.composer/vendor/php-stubs/',
+							'/Users/ebbec/.composer/vendor/wpsyntex/',
+							-- '/home/ebbec/.composer/vendor/php-stubs/',
+							-- '/home/ebbec/.composer/vendor/wpsyntex/',
+						}
 					},
 					files = {
 						maxSize = 5000000;
@@ -285,7 +286,6 @@ return {
 		vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 		vim.keymap.set('n', 'gi', ':Telescope lsp_implementations<CR>')
 		vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>')
-		-- vim.keymap.set('n', '<Leader>lr', ':LspRestart<CR>', { silent = true })
 		vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 		-- vim.keymap.set('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
@@ -299,6 +299,27 @@ return {
 				source = true,
 			}
 		})
+
+		-- Add borders to popups
+		-- https://vi.stackexchange.com/questions/39074/user-borders-around-lsp-floating-windows
+		-- local _border = "single"
+		local _border = "rounded"
+		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+			vim.lsp.handlers.hover, {
+				border = _border
+			}
+		)
+		vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+			vim.lsp.handlers.signature_help, {
+				border = _border
+			}
+		)
+		vim.diagnostic.config{
+			float={border=_border}
+		}
+		require('lspconfig.ui.windows').default_options = {
+			border = _border
+		}
 
 		-- Sign configuration
 		vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
