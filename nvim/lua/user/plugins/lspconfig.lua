@@ -105,8 +105,8 @@ return {
 						-- includePaths = {
 						'/Users/ebbec/.composer/vendor/php-stubs/',
 						'/Users/ebbec/.composer/vendor/wpsyntex/',
-						-- 	'/home/ebbec/.composer/vendor/php-stubs/',
-						-- 	'/home/ebbec/.composer/vendor/wpsyntex/',
+						'/home/ebbec/.composer/vendor/php-stubs/',
+						'/home/ebbec/.composer/vendor/wpsyntex/',
 						-- }
 					},
 					files = {
@@ -242,6 +242,7 @@ return {
 				}),
 
 				null_ls.builtins.formatting.prettier.with({
+					extra_args = { "--plugin-search-dir=." },
 					filetypes = {
 						"javascript",
 						"css",
@@ -256,6 +257,7 @@ return {
 							'prettier.config.js',
 						})
 					end,
+					prefer_local = true,
 				}),
 			},
 			on_attach = function(client, bufnr)

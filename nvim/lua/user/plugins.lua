@@ -80,6 +80,8 @@ require("lazy").setup(
 		{ import = 'user.plugins.marks' },
 		-- Jump anywhere
 		{ import = 'user.plugins.hop' },
+		-- ChatGPT integration
+		{ import = 'user.plugins.chatgpt'},
 	},
 	{
 		checker = {

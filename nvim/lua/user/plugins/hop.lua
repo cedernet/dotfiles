@@ -5,5 +5,6 @@ return {
 	config = function()
 		require('hop').setup()
 		vim.keymap.set('n', 's', ':HopWord<CR>');
+		vim.keymap.set('v', 's', '<cmd>HopWord<CR>');
 	end,
 }

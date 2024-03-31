@@ -55,10 +55,10 @@ vim.keymap.set('n', '<C-h>', ':bprevious<CR>')
 vim.keymap.set('n', '<C-l>', ':bnext<CR>')
 
 -- Pane switching easier
--- vim.keymap.set('n', '<leader>h', ':wincmd h<CR>')
--- vim.keymap.set('n', '<leader>l', ':wincmd l<CR>')
-vim.keymap.set('n', '<leader>j', ':wincmd h<CR>')
-vim.keymap.set('n', '<leader>k', ':wincmd l<CR>')
+vim.keymap.set('n', '<leader>H', ':wincmd h<CR>')
+vim.keymap.set('n', '<leader>L', ':wincmd l<CR>')
+vim.keymap.set('n', '<leader>J', ':wincmd j<CR>')
+vim.keymap.set('n', '<leader>K', ':wincmd k<CR>')
 
 -- Jump over char in insert mode
 vim.keymap.set('i', '<C-space>', '<right>')
@@ -69,4 +69,7 @@ vim.keymap.set('n', '<leader>M', ':%s/^M//g<CR>');
 -- Reindent entire file
 -- NOTE: markz z, goto top, line select, goto bottom, press =, goto z, del mark
 vim.keymap.set('n', '<leader>=', 'mzggVG=`z<Esc>:delm z<CR>');
+
+-- ChatGPT stuff
+vim.keymap.set('n', '<leader>ch', ':ChatGPT<CR>')
 
