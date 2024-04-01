@@ -178,7 +178,11 @@ return {
 	event = "VeryLazy",
 	config = function()
 		require("chatgpt").setup({
-			api_key_cmd = 'cat /home/ebbec/dev/chatgpt.txt',
+			api_key_cmd = (
+				(vim.fn.filereadable("/Users/ebbec/dev/chatgpt.txt") == 1)
+				and 'cat /Users/ebbec/dev/chatgpt.txt'
+				or 'cat /home/ebbec/dev/chatgpt.txt'
+			),
 			openai_params = {
 				model = "gpt-4-turbo-preview"
 			},
