@@ -72,4 +72,5 @@ vim.keymap.set('n', '<leader>=', 'mzggVG=`z<Esc>:delm z<CR>');
 
 -- ChatGPT stuff
 vim.keymap.set('n', '<leader>ch', ':ChatGPT<CR>')
+vim.keymap.set('v', '<leader>ce', ':ChatGPTEditWithInstructions<CR>')
 
