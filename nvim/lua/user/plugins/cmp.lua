@@ -38,6 +38,18 @@ return {
 		end
 
 		cmp.setup({
+			-- Disable autocomplete in comments
+			-- https://github.com/hrsh7th/nvim-cmp/pull/676#issuecomment-1724981778
+			enabled = function()
+				local context = require("cmp.config.context")
+				local disabled = false
+				disabled = disabled or (vim.api.nvim_buf_get_option(0, "buftype") == "prompt")
+				disabled = disabled or (vim.fn.reg_recording() ~= "")
+				disabled = disabled or (vim.fn.reg_executing() ~= "")
+				disabled = disabled or context.in_treesitter_capture("comment")
+				return not disabled
+			end,
+
 			preselect = false,
 			snippet = {
 				expand = function(args)
@@ -84,7 +96,7 @@ return {
 			mapping = {
 				["<Tab>"] = cmp.mapping(function(fallback)
 					-- print('tab...')
-					if cmp.visible() then
+				if cmp.visible() then
 						cmp.select_next_item()
 					elseif luasnip.expand_or_jumpable() then
 						luasnip.expand_or_jump()
@@ -93,16 +105,16 @@ return {
 					else
 						fallback()
 					end
-				end, { "i", "s" }),
+					end, { "i", "s" }),
 				["<S-Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
+				if cmp.visible() then
 						cmp.select_prev_item()
 					elseif luasnip.jumpable(-1) then
 						luasnip.jump(-1)
 					else
 						fallback()
 					end
-				end, { "i", "s" }),
+					end, { "i", "s" }),
 				['<CR>'] = cmp.mapping.confirm({ select = false }),
 			},
 			sources = {

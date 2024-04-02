@@ -83,12 +83,12 @@ require("lazy").setup(
 		-- ChatGPT integration
 		{ import = 'user.plugins.chatgpt'},
 
-		{
-			dir = '/Users/ebbec/dev/nvim/example.nvim',
-			opts = {
-				name = 'monkeybutt',
-			},
-		},
+		-- {
+		-- 	dir = '/Users/ebbec/dev/nvim/example.nvim',
+		-- 	opts = {
+		-- 		name = 'monkeybutt',
+		-- 	},
+		-- },
 	},
 	{
 		checker = {
