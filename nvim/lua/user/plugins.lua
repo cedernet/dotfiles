@@ -16,9 +16,9 @@ require("lazy").setup(
 		-- Monokai-pro theme
 		{ import = 'user.plugins.monokai-pro' },
 		-- Gruvbox-material theme
-		{ import = 'user.plugins.gruvbox-material' },
+		-- { import = 'user.plugins.gruvbox-material' },
 		-- Bamboo theme
-		{ import = 'user.plugins.bamboo' },
+		-- { import = 'user.plugins.bamboo' },
 		-- Commenting support.
 		{ import = 'user.plugins.vim-commentary' },
 		-- Add, change, and delete surrounding text.
