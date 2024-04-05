@@ -4,6 +4,7 @@ return {
 	ft = 'php',
 	keys = {
 		{ '<Leader>pm', ':PhpactorContextMenu<CR>' },
-		{ '<Leader>pn', ':PhpactorClassNew<CR>' },
+		{ '<Leader>im', ':PhpactorImportMissingClasses<CR>' },
 	}
 }
+
