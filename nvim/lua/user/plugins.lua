@@ -18,7 +18,7 @@ require("lazy").setup(
 		-- Gruvbox-material theme
 		-- { import = 'user.plugins.gruvbox-material' },
 		-- Bamboo theme
-		-- { import = 'user.plugins.bamboo' },
+		{ import = 'user.plugins.bamboo' },
 		-- Commenting support.
 		{ import = 'user.plugins.vim-commentary' },
 		-- Add, change, and delete surrounding text.
