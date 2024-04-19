@@ -16,7 +16,9 @@ return {
 				height = 0.8,
 			},
 		})
-		require('mason-lspconfig').setup({ automatic_installation = true })
+		require('mason-lspconfig').setup({
+			automatic_installation = false
+		})
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -158,21 +160,28 @@ return {
 				client.server_capabilities.documentFormattingProvider = false
 				client.server_capabilities.documentRangeFormattingProvider = false
 				-- if client.server_capabilities.inlayHintProvider then
-				--   vim.lsp.buf.inlay_hint(bufnr, true)
+				-- 	vim.lsp.buf.inlay_hint(bufnr, true)
 				-- end
 			end,
-			-- init_options = {
-			-- 	{
-			-- 		typescript = {
-			-- 			tsdk = '/usr/local/lib/node_modules/typescript/lib/'
-			-- 		}
-			-- 	}
-			-- },
 			capabilities = capabilities,
-			-- Enable "Take Over Mode" where volar will provide all JS/TS LSP services
-			-- This drastically improves the responsiveness of diagnostic updates on change
-			filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
 		})
+
+		require('lspconfig').tsserver.setup{
+			init_options = {
+				plugins = {
+					{
+						name = "@vue/typescript-plugin",
+						location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+						languages = {"javascript", "typescript", "vue"},
+					},
+				},
+			},
+			filetypes = {
+				"javascript",
+				"typescript",
+				"vue",
+			},
+		}
 
 		-- Tailwind CSS
 		-- require('lspconfig').tailwindcss.setup({ capabilities = capabilities })
