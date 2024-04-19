@@ -13,6 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup(
 	{
+		-- Everforest theme
+		{ import = 'user.plugins.everforest' },
 		-- Monokai-pro theme
 		{ import = 'user.plugins.monokai-pro' },
 		-- Gruvbox-material theme
@@ -40,8 +42,6 @@ require("lazy").setup(
 		{ import = 'user.plugins.treesj' },
 		-- Improved syntax highlighting
 		{ import = 'user.plugins.treesitter' },
-		-- Disable backgrounds to make vim transparent
-		-- { 'xiyaowong/transparent.nvim' },
 		-- Fuzzy finder
 		{ import = 'user.plugins.telescope' },
 		-- File tree
@@ -82,6 +82,8 @@ require("lazy").setup(
 		{ import = 'user.plugins.hop' },
 		-- ChatGPT integration
 		{ import = 'user.plugins.chatgpt'},
+		-- Transparent BG
+		{ import = 'user.plugins.transparent' },
 
 		-- {
 		-- 	dir = '/Users/ebbec/dev/nvim/example.nvim',
