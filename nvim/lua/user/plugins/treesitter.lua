@@ -48,6 +48,7 @@ return {
 			'markdown',
 			'passwd',
 			'php',
+			'php_only',
 			'phpdoc',
 			'python',
 			'regex',

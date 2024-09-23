@@ -13,16 +13,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup(
 	{
-		-- Everforest theme
-		{ import = 'user.plugins.everforest' },
 		-- Monokai-pro theme
 		{ import = 'user.plugins.monokai-pro' },
-		-- Gruvbox-material theme
-		-- { import = 'user.plugins.gruvbox-material' },
 		-- Bamboo theme
 		{ import = 'user.plugins.bamboo' },
-		-- Commenting support.
-		{ import = 'user.plugins.vim-commentary' },
 		-- Add, change, and delete surrounding text.
 		-- https://github.com/tpope/vim-surround
 		{ 'tpope/vim-surround' },
@@ -66,8 +60,6 @@ require("lazy").setup(
 		{ import = 'user.plugins.lspconfig' },
 		-- PHP Refactoring Tools
 		{ import = 'user.plugins.phpactor' },
-		-- Harpoon file jumper
-		{ import = 'user.plugins.harpoon' },
 		-- Show overview of code on page
 		{ import = 'user.plugins.aerial' },
 		-- Sublime style multicursor
@@ -82,8 +74,8 @@ require("lazy").setup(
 		{ import = 'user.plugins.hop' },
 		-- ChatGPT integration
 		{ import = 'user.plugins.chatgpt'},
-		-- Transparent BG
-		{ import = 'user.plugins.transparent' },
+		-- Markdown parsing
+		{ import = 'user.plugins.markview'},
 
 		-- {
 		-- 	dir = '/Users/ebbec/dev/nvim/example.nvim',
