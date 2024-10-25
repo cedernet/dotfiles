@@ -76,7 +76,8 @@ require("lazy").setup(
 		{ import = 'user.plugins.chatgpt'},
 		-- Markdown parsing
 		{ import = 'user.plugins.markview'},
-
+		-- Other monokai
+		{ 'crusoexia/vim-monokai' },
 		-- {
 		-- 	dir = '/Users/ebbec/dev/nvim/example.nvim',
 		-- 	opts = {

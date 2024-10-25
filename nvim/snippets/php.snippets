@@ -1,15 +1,3 @@
-snippet pubf "public method"
-	public function ${1}(${2}): $3
-	{
-		${0}
-	}
-
-snippet prif "private method"
-	protected function ${1}(${2}): $3
-	{
-		${0}
-	}
-
 snippet com "Comment banner"
 	/*
 	***************************************************************
@@ -25,4 +13,15 @@ snippet hcom "Comment in html part of php"
 	***************************************************************
 	*/ ?>
 	${0}
+
+snippet fori "FOR loop"
+	for ( $i=0; $i<${1}; $i++ ) {
+		${0}
+	}
+
+snippet pre "Add <pre> tags for testing"
+	echo "<pre>";
+	${0}
+	echo "</pre>";
+
 
