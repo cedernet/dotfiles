@@ -1,3 +1,11 @@
+snippet dd "Dump 'n Die"
+	var_dump(${1});die();${0}
+
+snippet predd "Dump 'n Die"
+	echo "<pre>";
+	var_dump(${1});die();${0}
+	echo "</pre>";
+
 snippet com "Comment banner"
 	/*
 	***************************************************************

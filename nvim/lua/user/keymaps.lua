@@ -63,11 +63,8 @@ vim.keymap.set('n', '<leader>K', ':wincmd k<CR>')
 -- Jump over char in insert mode
 vim.keymap.set('i', '<C-space>', '<right>')
 
--- Remove windows line breaks
-vim.keymap.set('n', '<leader>M', ':%s/^M//g<CR>');
-
 -- Reindent entire file
--- NOTE: markz z, goto top, line select, goto bottom, press =, goto z, del mark
+-- markz z, goto top, line select, goto bottom, press =, goto z, del mark
 vim.keymap.set('n', '<leader>=', 'mzggVG=`z<Esc>:delm z<CR>');
 
 -- Jump to floating window from insert mode
