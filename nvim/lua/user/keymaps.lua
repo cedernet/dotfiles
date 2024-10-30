@@ -5,7 +5,7 @@ vim.g.maplocalleader = ' '
 -- Quickly clear search highlighting.
 vim.keymap.set('n', '<leader>cc', ':nohlsearch<cr>')
 
--- close all open buffers.
+-- close tab.
 vim.keymap.set('n', '<leader>q', ':bufdo bdelete<cr>')
 
 -- allow gf to open non-existent files.
@@ -62,6 +62,10 @@ vim.keymap.set('n', '<leader>K', ':wincmd k<CR>')
 
 -- Jump over char in insert mode
 vim.keymap.set('i', '<C-space>', '<right>')
+
+-- Trying to avoid constantly undoing and deleting shit
+vim.keymap.set('n', '<C-K>', '<C-U>');
+vim.keymap.set('n', '<C-J>', '<C-D>');
 
 -- Reindent entire file
 -- markz z, goto top, line select, goto bottom, press =, goto z, del mark

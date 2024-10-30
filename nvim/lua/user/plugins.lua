@@ -29,7 +29,7 @@ require("lazy").setup(
 		-- Automatically add closing brackets, quotes, etc.
 		{ 'windwp/nvim-autopairs', config = true },
 		-- Add smooth scrolling to avoid jarring jumps
-		{ 'karb94/neoscroll.nvim', config = true },
+		-- { 'karb94/neoscroll.nvim', config = true },
 		-- All closing buffers without closing the split window.
 		{ import = 'user.plugins.bufdelete' },
 		-- Split arrays and methods onto multiple lines, or join them back up.
