@@ -75,6 +75,9 @@ return {
 				lsp_document_symbols = {
 					symbol_width = 55,
 				},
+				colorscheme = {
+					enable_preview = true,
+				},
 			},
 		})
 

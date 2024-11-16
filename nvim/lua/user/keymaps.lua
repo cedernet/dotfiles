@@ -3,9 +3,9 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Quickly clear search highlighting.
-vim.keymap.set('n', '<leader>c', ':nohlsearch<cr>')
+vim.keymap.set('n', '<leader>cc', ':nohlsearch<cr>')
 
--- close all open buffers.
+-- close tab.
 vim.keymap.set('n', '<leader>q', ':bufdo bdelete<cr>')
 
 -- allow gf to open non-existent files.
@@ -63,12 +63,25 @@ vim.keymap.set('n', '<leader>K', ':wincmd k<CR>')
 -- Jump over char in insert mode
 vim.keymap.set('i', '<C-space>', '<right>')
 
--- Remove windows line breaks
-vim.keymap.set('n', '<leader>M', ':%s/^M//g<CR>');
+-- Trying to avoid constantly undoing and deleting shit
+vim.keymap.set('n', '<C-K>', '<C-U>');
+vim.keymap.set('n', '<C-J>', '<C-D>');
 
 -- Reindent entire file
--- NOTE: markz z, goto top, line select, goto bottom, press =, goto z, del mark
+-- markz z, goto top, line select, goto bottom, press =, goto z, del mark
 vim.keymap.set('n', '<leader>=', 'mzggVG=`z<Esc>:delm z<CR>');
+
+-- Jump to floating window from insert mode
+-- NOTE: Try to get this to work
+-- vim.keymap.set("i", "<C-f>", function()
+--     vim.cmd.stopinsert()
+--     vim.lsp.buf.signature_help()
+--     vim.defer_fn(function() vim.cmd.wincmd("w") end, 100)
+--     vim.keymap.set("n", "q", ":close<CR>", { buffer = true })
+-- end)
+
+-- Insert docBlock
+vim.keymap.set('n', '<leader>pd', ':PHPDocBlocks<cr>')
 
 -- ChatGPT stuff
 vim.keymap.set('n', '<leader>ch', ':ChatGPT<CR>')
