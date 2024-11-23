@@ -73,6 +73,7 @@ return {
 						"mcrypt",
 						"mysql",
 						"mysqli",
+						"openssl",
 						"password",
 						"pcntl",
 						"pcre",
