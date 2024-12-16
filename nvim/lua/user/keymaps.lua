@@ -8,9 +8,6 @@ vim.keymap.set('n', '<leader>cc', ':nohlsearch<cr>')
 -- close tab.
 vim.keymap.set('n', '<leader>q', ':bufdo bdelete<cr>')
 
--- allow gf to open non-existent files.
-vim.keymap.set('', 'gf', ':edit <cfile><cr>')
-
 -- reselect visual selection after indenting.
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
@@ -54,12 +51,6 @@ vim.keymap.set('n', '<leader>å', ":%s/\\s\\+$//e<CR>")
 vim.keymap.set('n', '<C-h>', ':bprevious<CR>')
 vim.keymap.set('n', '<C-l>', ':bnext<CR>')
 
--- Pane switching easier
-vim.keymap.set('n', '<leader>H', ':wincmd h<CR>')
-vim.keymap.set('n', '<leader>L', ':wincmd l<CR>')
-vim.keymap.set('n', '<leader>J', ':wincmd j<CR>')
-vim.keymap.set('n', '<leader>K', ':wincmd k<CR>')
-
 -- Jump over char in insert mode
 vim.keymap.set('i', '<C-space>', '<right>')
 
@@ -71,19 +62,9 @@ vim.keymap.set('n', '<C-J>', '<C-D>');
 -- markz z, goto top, line select, goto bottom, press =, goto z, del mark
 vim.keymap.set('n', '<leader>=', 'mzggVG=`z<Esc>:delm z<CR>');
 
--- Jump to floating window from insert mode
--- NOTE: Try to get this to work
--- vim.keymap.set("i", "<C-f>", function()
---     vim.cmd.stopinsert()
---     vim.lsp.buf.signature_help()
---     vim.defer_fn(function() vim.cmd.wincmd("w") end, 100)
---     vim.keymap.set("n", "q", ":close<CR>", { buffer = true })
--- end)
-
 -- Insert docBlock
 vim.keymap.set('n', '<leader>pd', ':PHPDocBlocks<cr>')
 
--- ChatGPT stuff
-vim.keymap.set('n', '<leader>ch', ':ChatGPT<CR>')
-vim.keymap.set('v', '<leader>ce', ':ChatGPTEditWithInstructions<CR>')
+-- Easier exit from terminal
+vim.keymap.set('t', '<C-w>h', "<C-\\><C-n><C-w>h",{silent = true})
 
