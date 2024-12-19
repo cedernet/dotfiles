@@ -1,6 +1,6 @@
 return {
 	'ribru17/bamboo.nvim',
-	lazy = false,
+	lazy = true,
 	priority = 900,
 	config = function()
 		require('bamboo').setup()
