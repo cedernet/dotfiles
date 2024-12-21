@@ -146,7 +146,7 @@ local allDefaults = {
 		},
 	},
 	openai_params = {
-		model = "gpt-3.5-turbo",
+		model = "gpt-4o-mini",
 		frequency_penalty = 0,
 		presence_penalty = 0,
 		max_tokens = 300,
@@ -155,7 +155,7 @@ local allDefaults = {
 		n = 1,
 	},
 	openai_edit_params = {
-		model = "gpt-3.5-turbo",
+		model = "gpt-4o-mini",
 		frequency_penalty = 0,
 		presence_penalty = 0,
 		temperature = 0,
@@ -184,12 +184,14 @@ return {
 				or 'cat /home/ebbec/dev/chatgpt.txt'
 			),
 			openai_params = {
-				model = "gpt-4-turbo-preview"
+				model = "gpt-4o-mini",
 			},
 			openai_edit_params = {
-				model = "gpt-4-turbo-preview"
+				model = "gpt-4o-mini",
 			}
 		})
+		vim.keymap.set('n', '<leader>ch', ':ChatGPT<CR>')
+		vim.keymap.set('v', '<leader>ce', ':ChatGPTEditWithInstructions<CR>')
 	end,
 	dependencies = {
 		"MunifTanjim/nui.nvim",

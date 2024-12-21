@@ -29,7 +29,7 @@ require("lazy").setup(
 		-- Automatically add closing brackets, quotes, etc.
 		{ 'windwp/nvim-autopairs', config = true },
 		-- Add smooth scrolling to avoid jarring jumps
-		-- { 'karb94/neoscroll.nvim', config = true },
+		{ import = 'user.plugins.neoscroll' },
 		-- All closing buffers without closing the split window.
 		{ import = 'user.plugins.bufdelete' },
 		-- Split arrays and methods onto multiple lines, or join them back up.
@@ -37,7 +37,7 @@ require("lazy").setup(
 		-- Improved syntax highlighting
 		{ import = 'user.plugins.treesitter' },
 		-- Fuzzy finder
-		{ import = 'user.plugins.telescope' },
+		-- { import = 'user.plugins.telescope' },
 		-- File tree
 		{ import = 'user.plugins.neo-tree' },
 		-- A Status line.
@@ -78,6 +78,15 @@ require("lazy").setup(
 		{ import = 'user.plugins.markview'},
 		-- Other monokai
 		{ 'crusoexia/vim-monokai' },
+		{
+			"robitx/gp.nvim",
+			config = function()
+				local conf = {
+					openai_api_key = { "cat", "/Users/ebbec/dev/chatgpt.txt" },
+				}
+				require("gp").setup(conf)
+			end,
+		},
 		-- {
 		-- 	dir = '/Users/ebbec/dev/nvim/example.nvim',
 		-- 	opts = {
@@ -93,10 +102,5 @@ require("lazy").setup(
 		change_detection = {
 			notify = false,
 		},
-		-- install = {
-		-- 	colorscheme = {
-		-- 		"monokai-pro-spectrum",
-		-- 	},
-		-- },
 	}
 )

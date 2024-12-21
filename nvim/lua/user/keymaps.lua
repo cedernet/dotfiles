@@ -68,3 +68,9 @@ vim.keymap.set('n', '<leader>pd', ':PHPDocBlocks<cr>')
 -- Easier exit from terminal
 vim.keymap.set('t', '<C-w>h', "<C-\\><C-n><C-w>h",{silent = true})
 
+-- 2024-12-21 - Telescope seems to persist after deletion. So let's put these here
+vim.keymap.set('n','<leader>f', function() require('telescope.builtin').find_files() end)
+vim.keymap.set('n', '<leader>F', function() require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' }) end)
+vim.keymap.set('n', '<leader>g', function() require('telescope.builtin').live_grep() end)
+vim.keymap.set('n', '<leader>y', function() require('telescope.builtin').oldfiles() end)
+
