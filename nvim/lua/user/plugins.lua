@@ -37,7 +37,7 @@ require("lazy").setup(
 		-- Improved syntax highlighting
 		{ import = 'user.plugins.treesitter' },
 		-- Fuzzy finder
-		-- { import = 'user.plugins.telescope' },
+		{ import = 'user.plugins.telescope' },
 		-- File tree
 		{ import = 'user.plugins.neo-tree' },
 		-- A Status line.
