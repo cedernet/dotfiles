@@ -175,7 +175,8 @@ local allDefaults = {
 -- https://github.com/jackMort/ChatGPT.nvim
 return {
 	"jackMort/ChatGPT.nvim",
-	event = "VeryLazy",
+	lazy = true,
+	-- event = "VeryLazy",
 	config = function()
 		require("chatgpt").setup({
 			api_key_cmd = (
@@ -190,9 +191,13 @@ return {
 				model = "gpt-4o-mini",
 			}
 		})
-		vim.keymap.set('n', '<leader>ch', ':ChatGPT<CR>')
-		vim.keymap.set('v', '<leader>ce', ':ChatGPTEditWithInstructions<CR>')
+		-- vim.keymap.set('n', '<leader>ch', ':ChatGPT<CR>')
+		-- vim.keymap.set('v', '<leader>ce', ':ChatGPTEditWithInstructions<CR>')
 	end,
+	keys = {
+      { "<leader>ch", "<cmd>ChatGPT<cr>", desc = "Toggle ChatGPT" },
+      { "<leader>ce", "<cmd>ChatGPTEditWithInstructions<cr>", desc = "ChatGPT Edit" },
+    },
 	dependencies = {
 		"MunifTanjim/nui.nvim",
 		"nvim-lua/plenary.nvim",

@@ -78,15 +78,8 @@ require("lazy").setup(
 		{ import = 'user.plugins.markview'},
 		-- Other monokai
 		{ 'crusoexia/vim-monokai' },
-		{
-			"robitx/gp.nvim",
-			config = function()
-				local conf = {
-					openai_api_key = { "cat", "/Users/ebbec/dev/chatgpt.txt" },
-				}
-				require("gp").setup(conf)
-			end,
-		},
+		-- Other ChatGPT
+		{ import = 'user.plugins.gp' },
 		-- {
 		-- 	dir = '/Users/ebbec/dev/nvim/example.nvim',
 		-- 	opts = {
