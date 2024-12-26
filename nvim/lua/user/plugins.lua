@@ -79,7 +79,7 @@ require("lazy").setup(
 		-- Other monokai
 		{ 'crusoexia/vim-monokai' },
 		-- Other ChatGPT
-		{ import = 'user.plugins.gp' },
+		-- { import = 'user.plugins.gp' },
 		-- {
 		-- 	dir = '/Users/ebbec/dev/nvim/example.nvim',
 		-- 	opts = {
