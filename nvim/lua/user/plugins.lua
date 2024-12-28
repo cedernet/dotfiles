@@ -71,15 +71,18 @@ require("lazy").setup(
 		-- Easier to use marks/bookmarks
 		{ import = 'user.plugins.marks' },
 		-- Jump anywhere
-		{ import = 'user.plugins.hop' },
+		-- { import = 'user.plugins.hop' },
 		-- ChatGPT integration
-		{ import = 'user.plugins.chatgpt'},
+		{ import = 'user.plugins.chatgpt' },
 		-- Markdown parsing
-		{ import = 'user.plugins.markview'},
+		{ import = 'user.plugins.markview' },
 		-- Other monokai
-		{ 'crusoexia/vim-monokai' },
+		{ 'crusoexia/vim-monokai', event='VeryLazy' },
+		-- Jump around the file
+		{ import = 'user.plugins.flash' },
 		-- Other ChatGPT
 		-- { import = 'user.plugins.gp' },
+		-- Testing a plugin
 		-- {
 		-- 	dir = '/Users/ebbec/dev/nvim/example.nvim',
 		-- 	opts = {

@@ -30,7 +30,7 @@ return {
 			luasnip = "LuaSnip",
 			nvim_lua = "Lua",
 			path = "Path",
-			copilot = "Copilot",
+			-- copilot = "Copilot",
 		}
 
 		local function ltrim(s)
@@ -118,9 +118,9 @@ return {
 				['<CR>'] = cmp.mapping.confirm({ select = false }),
 			},
 			sources = {
+				{ name = 'luasnip', priority = 1000 },
 				{ name = 'nvim_lsp' },
 				{ name = 'nvim_lsp_signature_help' },
-				{ name = 'luasnip' },
 				-- { name = 'copilot' },
 				{ name = 'buffer' },
 				{ name = 'path' },
