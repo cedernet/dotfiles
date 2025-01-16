@@ -65,6 +65,12 @@ vim.keymap.set('n', '<leader>=', 'mzggVG=`z<Esc>:delm z<CR>');
 -- Insert docBlock
 vim.keymap.set('n', '<leader>pd', ':PHPDocBlocks<cr>')
 
+-- Open terminal
+vim.api.nvim_set_keymap("n", "<leader>tt", ":split<CR>:terminal<CR>", { noremap = true, silent = true })
+
+-- Close terminal
+vim.api.nvim_set_keymap("t", "<leader>tw", "exit<CR><C-\\><C-n><C-w>h", { noremap = true, silent = true })
+
 -- Easier exit from terminal
 vim.keymap.set('t', '<C-w>h', "<C-\\><C-n><C-w>h", { silent = true })
 

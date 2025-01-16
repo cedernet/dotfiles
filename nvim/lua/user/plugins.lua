@@ -70,16 +70,16 @@ require("lazy").setup(
 		{ import = 'user.plugins.todo-comments' },
 		-- Easier to use marks/bookmarks
 		{ import = 'user.plugins.marks' },
-		-- Jump anywhere
-		-- { import = 'user.plugins.hop' },
 		-- ChatGPT integration
 		{ import = 'user.plugins.chatgpt' },
 		-- Markdown parsing
 		{ import = 'user.plugins.markview' },
 		-- Other monokai
-		{ 'crusoexia/vim-monokai', event='VeryLazy' },
+		{ 'crusoexia/vim-monokai', event = 'VeryLazy' },
 		-- Jump around the file
 		{ import = 'user.plugins.flash' },
+		-- TODO and notes
+		{ import = 'user.plugins.lazydo' },
 		-- Other ChatGPT
 		-- { import = 'user.plugins.gp' },
 		-- Testing a plugin
