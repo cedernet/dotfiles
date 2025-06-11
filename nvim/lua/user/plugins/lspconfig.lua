@@ -1,3 +1,5 @@
+-- TODO: Fix this with this https://github.com/neovim/nvim-lspconfig
+
 return {
 	'neovim/nvim-lspconfig',
 	event = 'VeryLazy',
@@ -6,8 +8,8 @@ return {
 		'williamboman/mason-lspconfig.nvim',
 		-- For json stuff
 		'b0o/schemastore.nvim',
-		{ 'jose-elias-alvarez/null-ls.nvim', dependencies = 'nvim-lua/plenary.nvim' },
-		'jayp0521/mason-null-ls.nvim',
+		{ 'nvimtools/none-ls.nvim', dependencies = 'nvim-lua/plenary.nvim' },
+		-- 'jayp0521/mason-null-ls.nvim',
 	},
 	config = function()
 		-- Setup Mason to automatically install LSP servers
@@ -230,19 +232,19 @@ return {
 		null_ls.setup({
 			temp_dir = '/tmp',
 			sources = {
-				null_ls.builtins.diagnostics.eslint_d.with({
-					condition = function(utils)
-						return utils.root_has_file({ '.eslintrc.js' })
-					end,
-				}),
-
-				null_ls.builtins.diagnostics.trail_space.with({ disabled_filetypes = { 'NvimTree' } }),
-
-				null_ls.builtins.formatting.eslint_d.with({
-					condition = function(utils)
-						return utils.root_has_file({ '.eslintrc.js', '.eslintrc.json' })
-					end,
-				}),
+				-- null_ls.builtins.diagnostics.eslint_d.with({
+				-- 	condition = function(utils)
+				-- 		return utils.root_has_file({ '.eslintrc.js' })
+				-- 	end,
+				-- }),
+				--
+				-- null_ls.builtins.diagnostics.trail_space.with({ disabled_filetypes = { 'NvimTree' } }),
+				--
+				-- null_ls.builtins.formatting.eslint_d.with({
+				-- 	condition = function(utils)
+				-- 		return utils.root_has_file({ '.eslintrc.js', '.eslintrc.json' })
+				-- 	end,
+				-- }),
 
 				-- Custom rules https://mlocati.github.io/php-cs-fixer-configurator/#version:3.51
 				-- Documentation https://laravel.com/docs/11.x/pint
@@ -285,8 +287,8 @@ return {
 			end,
 		})
 
-		require('mason-null-ls').setup({ automatic_installation = true })
-
+		-- require('mason-null-ls').setup({ automatic_installation = true })
+		--
 		-- Keymaps
 		vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
 		vim.keymap.set('n', '<d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')

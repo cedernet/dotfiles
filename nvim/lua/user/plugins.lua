@@ -63,7 +63,7 @@ require("lazy").setup(
 		-- Show overview of code on page
 		{ import = 'user.plugins.aerial' },
 		-- Sublime style multicursor
-		{ import = 'user.plugins.multicursors' },
+		-- { import = 'user.plugins.multicursors' },
 		-- PHP docblocks
 		{ 'brett-griffin/phpdocblocks.vim' },
 		-- Better comments
@@ -71,7 +71,7 @@ require("lazy").setup(
 		-- Easier to use marks/bookmarks
 		{ import = 'user.plugins.marks' },
 		-- ChatGPT integration
-		{ import = 'user.plugins.chatgpt' },
+		-- { import = 'user.plugins.chatgpt' },
 		-- Markdown parsing
 		{ import = 'user.plugins.markview' },
 		-- Other monokai
@@ -79,7 +79,7 @@ require("lazy").setup(
 		-- Jump around the file
 		{ import = 'user.plugins.flash' },
 		-- TODO and notes
-		{ import = 'user.plugins.lazydo' },
+		-- { import = 'user.plugins.lazydo' },
 		-- Other ChatGPT
 		-- { import = 'user.plugins.gp' },
 		-- Testing a plugin
