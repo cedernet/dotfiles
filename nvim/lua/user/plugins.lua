@@ -15,8 +15,6 @@ require("lazy").setup(
 	{
 		-- Monokai-pro theme
 		{ import = 'user.plugins.monokai-pro' },
-		-- Bamboo theme
-		{ import = 'user.plugins.bamboo' },
 		-- Add, change, and delete surrounding text.
 		-- https://github.com/tpope/vim-surround
 		{ 'tpope/vim-surround' },
@@ -70,16 +68,8 @@ require("lazy").setup(
 		{ import = 'user.plugins.todo-comments' },
 		-- Easier to use marks/bookmarks
 		{ import = 'user.plugins.marks' },
-		-- ChatGPT integration
-		-- { import = 'user.plugins.chatgpt' },
-		-- Markdown parsing
-		{ import = 'user.plugins.markview' },
-		-- Other monokai
-		{ 'crusoexia/vim-monokai', event = 'VeryLazy' },
 		-- Jump around the file
 		{ import = 'user.plugins.flash' },
-		-- TODO and notes
-		-- { import = 'user.plugins.lazydo' },
 		-- Other ChatGPT
 		-- { import = 'user.plugins.gp' },
 		-- Testing a plugin

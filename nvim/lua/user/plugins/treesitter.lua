@@ -4,7 +4,7 @@ This feature will be removed in ts_context_commentstring version in the future ]
 
 return {
 	'nvim-treesitter/nvim-treesitter',
-	event = 'VeryLazy',
+	-- event = 'VeryLazy',
 	build = function()
 		require('nvim-treesitter.install').update({ with_sync = true })
 	end,
@@ -20,6 +20,7 @@ return {
 				end,
 			},
 		},
+		'OXY2DEV/markview.nvim',
 		'nvim-treesitter/nvim-treesitter-textobjects',
 	},
 	main = 'nvim-treesitter.configs',

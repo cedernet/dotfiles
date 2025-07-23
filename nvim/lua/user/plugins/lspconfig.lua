@@ -2,14 +2,13 @@
 
 return {
 	'neovim/nvim-lspconfig',
-	event = 'VeryLazy',
+	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		'williamboman/mason.nvim',
 		'williamboman/mason-lspconfig.nvim',
 		-- For json stuff
 		'b0o/schemastore.nvim',
 		{ 'nvimtools/none-ls.nvim', dependencies = 'nvim-lua/plenary.nvim' },
-		-- 'jayp0521/mason-null-ls.nvim',
 	},
 	config = function()
 		-- Setup Mason to automatically install LSP servers
@@ -18,29 +17,26 @@ return {
 				height = 0.8,
 			},
 		})
-		require('mason-lspconfig').setup({
-			automatic_installation = false
-		})
+
+		-- NOTE: This caused lsp's to trigger twice
+		--	
+		-- require('mason-lspconfig').setup({
+		-- 	automatic_installation = false
+		-- })
+
+		-- Lua
+		-- require('lspconfig').lua_ls.setup({
+		-- 	settings = {
+		-- 		Lua = {
+		-- 			diagnostics = {
+		-- 				globals = { 'vim' }
+		-- 			}
+		-- 		}
+		-- 	}
+		-- })
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-		-- Lua
-		require('lspconfig').lua_ls.setup({
-			settings = {
-				Lua = {
-					diagnostics = {
-						globals = {'vim'}
-					}
-				}
-			}
-		})
-
-		-- Vim Ls
-		-- require('lspconfig').vimls.setup({
-		-- 	filetypes = {
-		-- 		'vim',
-		-- 	},
-		-- })
 
 		-- PHP
 		require('lspconfig').intelephense.setup({
@@ -116,9 +112,9 @@ return {
 						}
 					},
 					files = {
-						maxSize = 5000000;
-					};
-				};
+						maxSize = 5000000,
+					},
+				},
 			},
 			on_attach = function(client, bufnr)
 				client.server_capabilities.documentFormattingProvider = false
@@ -169,13 +165,13 @@ return {
 			capabilities = capabilities,
 		})
 
-		require('lspconfig').ts_ls.setup{
+		require('lspconfig').ts_ls.setup {
 			init_options = {
 				plugins = {
 					{
 						name = "@vue/typescript-plugin",
 						location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-						languages = {"javascript", "typescript", "vue"},
+						languages = { "javascript", "typescript", "vue" },
 					},
 				},
 			},
@@ -287,8 +283,6 @@ return {
 			end,
 		})
 
-		-- require('mason-null-ls').setup({ automatic_installation = true })
-		--
 		-- Keymaps
 		vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
 		vim.keymap.set('n', '<d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
@@ -304,39 +298,27 @@ return {
 		-- Commands
 		vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format({ timeout_ms = 5000 }) end, {})
 
-		-- Diagnostic configuration
-		vim.diagnostic.config({
-			virtual_text = true,
-			float = {
-				source = true,
-			}
-		})
-
-		-- Add borders to popups
-		-- https://vi.stackexchange.com/questions/39074/user-borders-around-lsp-floating-windows
-		-- local _border = "single"
-		local _border = "rounded"
-		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-			vim.lsp.handlers.hover, {
-				border = _border
-			}
-		)
-		vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-			vim.lsp.handlers.signature_help, {
-				border = _border
-			}
-		)
-		vim.diagnostic.config{
-			float={border=_border}
-		}
-		require('lspconfig.ui.windows').default_options = {
-			border = _border
-		}
-
 		-- Sign configuration
-		vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
-		vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
-		vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
-		vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
+		vim.diagnostic.config {
+			virtual_text = false,
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = "",
+					[vim.diagnostic.severity.WARN] = "",
+					[vim.diagnostic.severity.INFO] = "󰋼",
+					[vim.diagnostic.severity.HINT] = "󰌵",
+				},
+			},
+			float = {
+				border = "rounded",
+				format = function(d)
+					return ("%s (%s) [%s]"):format(d.message, d.source, d.code or d.user_data.lsp.code)
+				end,
+			},
+			underline = true,
+			jump = {
+				float = true,
+			},
+		}
 	end,
 }
