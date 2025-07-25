@@ -20,23 +20,11 @@ return {
 
 		-- NOTE: This caused lsp's to trigger twice
 		--	
-		-- require('mason-lspconfig').setup({
-		-- 	automatic_installation = false
-		-- })
-
-		-- Lua
-		-- require('lspconfig').lua_ls.setup({
-		-- 	settings = {
-		-- 		Lua = {
-		-- 			diagnostics = {
-		-- 				globals = { 'vim' }
-		-- 			}
-		-- 		}
-		-- 	}
-		-- })
+		require('mason-lspconfig').setup({
+			automatic_enable = false
+		})
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 
 		-- PHP
 		require('lspconfig').intelephense.setup({
@@ -300,7 +288,7 @@ return {
 
 		-- Sign configuration
 		vim.diagnostic.config {
-			virtual_text = false,
+			virtual_text = true,
 			signs = {
 				text = {
 					[vim.diagnostic.severity.ERROR] = "",
