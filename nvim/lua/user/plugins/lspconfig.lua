@@ -232,30 +232,30 @@ return {
 
 				-- Custom rules https://mlocati.github.io/php-cs-fixer-configurator/#version:3.51
 				-- Documentation https://laravel.com/docs/11.x/pint
-				null_ls.builtins.formatting.pint.with({
-					condition = function(utils)
-						return utils.root_has_file({ 'vendor/bin/pint' })
-					end,
-				}),
-
-				null_ls.builtins.formatting.prettier.with({
-					extra_args = { "--plugin-search-dir=." },
-					filetypes = {
-						"javascript",
-						"css",
-						"php"
-					},
-					condition = function(utils)
-						return utils.root_has_file({
-							'.prettierrc',
-							'.prettierrc.json',
-							'.prettierrc.yml',
-							'.prettierrc.js',
-							'prettier.config.js',
-						})
-					end,
-					prefer_local = true,
-				}),
+				-- null_ls.builtins.formatting.pint.with({
+				-- 	condition = function(utils)
+				-- 		return utils.root_has_file({ 'vendor/bin/pint' })
+				-- 	end,
+				-- }),
+				--
+				-- null_ls.builtins.formatting.prettier.with({
+				-- 	extra_args = { "--plugin-search-dir=." },
+				-- 	filetypes = {
+				-- 		"javascript",
+				-- 		"css",
+				-- 		"php"
+				-- 	},
+				-- 	condition = function(utils)
+				-- 		return utils.root_has_file({
+				-- 			'.prettierrc',
+				-- 			'.prettierrc.json',
+				-- 			'.prettierrc.yml',
+				-- 			'.prettierrc.js',
+				-- 			'prettier.config.js',
+				-- 		})
+				-- 	end,
+				-- 	prefer_local = true,
+				-- }),
 			},
 			on_attach = function(client, bufnr)
 				if client.supports_method("textDocument/formatting") then
