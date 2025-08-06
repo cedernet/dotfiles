@@ -5,6 +5,7 @@ return {
 	keys = {
 		{ '<Leader>pm', ':PhpactorContextMenu<CR>' },
 		{ '<Leader>im', ':PhpactorImportMissingClasses<CR>' },
+		{ 'gh', ':PhpactorGotoDefinition hsplit<CR>' },
 	}
 }
 

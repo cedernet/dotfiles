@@ -43,4 +43,4 @@ vim.opt.virtualedit = 'onemore'
 vim.opt.foldmethod = 'indent'
 vim.opt.foldlevelstart = 99
 vim.opt.colorcolumn = "80"
-
+vim.opt.winborder = 'rounded'

@@ -13,6 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup(
 	{
+		-- Gruvbox-material theme
+		{ import = 'user.plugins.gruvbox-material' },
 		-- Monokai-pro theme
 		{ import = 'user.plugins.monokai-pro' },
 		-- Add, change, and delete surrounding text.
@@ -50,8 +52,6 @@ require("lazy").setup(
 		{ import = 'user.plugins.gitsigns' },
 		-- Git commands. https://github.com/tpope/vim-fugitive
 		{ 'tpope/vim-fugitive', dependencies = 'tpope/vim-rhubarb' },
-		-- Floating terminal.
-		{ import = 'user.plugins.floaterm' },
 		-- Completion
 		{ import = 'user.plugins.cmp' },
 		-- Language Server Protocol.
@@ -70,8 +70,6 @@ require("lazy").setup(
 		{ import = 'user.plugins.marks' },
 		-- Jump around the file
 		{ import = 'user.plugins.flash' },
-		-- Other ChatGPT
-		-- { import = 'user.plugins.gp' },
 		-- Testing a plugin
 		-- {
 		-- 	dir = '/Users/ebbec/dev/nvim/example.nvim',

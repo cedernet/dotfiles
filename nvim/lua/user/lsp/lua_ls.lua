@@ -9,7 +9,14 @@ vim.lsp.config['luals'] = {
 			},
 			diagnostics = {
 				globals = { 'vim' }
-			}
+			},
+			format = {
+				enable = true,
+				defaultConfig = {
+					align_array_table = "false",       -- Disables aligning array-like tables
+					align_continuous_assign_statement = "false", -- Disables aligning '=' signs
+				},
+			},
 		}
 	}
 }
