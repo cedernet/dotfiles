@@ -8,7 +8,7 @@ return {
 		'williamboman/mason-lspconfig.nvim',
 		-- For json stuff
 		'b0o/schemastore.nvim',
-		{ 'nvimtools/none-ls.nvim', dependencies = 'nvim-lua/plenary.nvim' },
+		-- { 'nvimtools/none-ls.nvim', dependencies = 'nvim-lua/plenary.nvim' },
 	},
 	config = function()
 		-- Setup Mason to automatically install LSP servers
@@ -38,59 +38,7 @@ return {
 			-- https://github.com/Mte90/dotfiles/blob/master/.config/nvim/lua/plugin/lsp.lua
 			settings = {
 				intelephense = {
-					stubs = {
-						"bcmath",
-						"bz2",
-						"Core",
-						"curl",
-						"date",
-						"dom",
-						"fileinfo",
-						"filter",
-						"gd",
-						"gettext",
-						"hash",
-						"iconv",
-						"imap",
-						"intl",
-						"json",
-						"libxml",
-						"mbstring",
-						"mcrypt",
-						"mysql",
-						"mysqli",
-						"openssl",
-						"password",
-						"pcntl",
-						"pcre",
-						"PDO",
-						"pdo_mysql",
-						"Phar",
-						"random",
-						"readline",
-						"regex",
-						"session",
-						"SimpleXML",
-						"sockets",
-						"sodium",
-						"standard",
-						"superglobals",
-						"tokenizer",
-						"xml",
-						"xdebug",
-						"xmlreader",
-						"xmlwriter",
-						"yaml",
-						"zip",
-						"zlib",
-						"wordpress-stubs",
-						"woocommerce-stubs",
-						"acf-pro-stubs",
-						"wordpress-globals",
-						"wp-cli-stubs",
-						"genesis-stubs",
-						"polylang-stubs"
-					},
+					stubs = { "bcmath", "bz2", "Core", "curl", "date", "dom", "fileinfo", "filter", "gd", "gettext", "hash", "iconv", "imap", "intl", "json", "libxml", "mbstring", "mcrypt", "mysql", "mysqli", "openssl", "password", "pcntl", "pcre", "PDO", "pdo_mysql", "Phar", "random", "readline", "regex", "session", "SimpleXML", "sockets", "sodium", "standard", "superglobals", "tokenizer", "xml", "xdebug", "xmlreader", "xmlwriter", "yaml", "zip", "zlib", "wordpress-stubs", "woocommerce-stubs", "acf-pro-stubs", "wordpress-globals", "wp-cli-stubs", "genesis-stubs", "polylang-stubs" },
 					environment = {
 						includePaths = {
 							'/Users/ebbec/.composer/vendor/php-stubs/',
@@ -114,32 +62,32 @@ return {
 			capabilities = capabilities
 		})
 
-		require('lspconfig').phpactor.setup({
-			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				client.server_capabilities.completionProvider = false
-				client.server_capabilities.hoverProvider = false
-				client.server_capabilities.implementationProvider = false
-				client.server_capabilities.referencesProvider = false
-				client.server_capabilities.renameProvider = false
-				client.server_capabilities.selectionRangeProvider = false
-				client.server_capabilities.signatureHelpProvider = false
-				client.server_capabilities.typeDefinitionProvider = false
-				client.server_capabilities.workspaceSymbolProvider = false
-				client.server_capabilities.definitionProvider = false
-				client.server_capabilities.documentHighlightProvider = false
-				client.server_capabilities.documentSymbolProvider = false
-				client.server_capabilities.documentFormattingProvider = false
-				client.server_capabilities.documentRangeFormattingProvider = false
-			end,
-			init_options = {
-				["language_server_phpstan.enabled"] = false,
-				["language_server_psalm.enabled"] = false,
-			},
-			handlers = {
-				['textDocument/publishDiagnostics'] = function() end
-			}
-		})
+		-- require('lspconfig').phpactor.setup({
+		-- 	on_attach = function(client, bufnr)
+		-- 		client.server_capabilities.completionProvider = false
+		-- 		client.server_capabilities.hoverProvider = false
+		-- 		client.server_capabilities.implementationProvider = false
+		-- 		client.server_capabilities.referencesProvider = false
+		-- 		client.server_capabilities.renameProvider = false
+		-- 		client.server_capabilities.selectionRangeProvider = false
+		-- 		client.server_capabilities.signatureHelpProvider = false
+		-- 		client.server_capabilities.typeDefinitionProvider = false
+		-- 		client.server_capabilities.workspaceSymbolProvider = false
+		-- 		client.server_capabilities.definitionProvider = false
+		-- 		client.server_capabilities.documentHighlightProvider = false
+		-- 		client.server_capabilities.documentSymbolProvider = false
+		-- 		client.server_capabilities.documentFormattingProvider = false
+		-- 		client.server_capabilities.documentRangeFormattingProvider = false
+		-- 	end,
+		-- 	init_options = {
+		-- 		["language_server_phpstan.enabled"] = false,
+		-- 		["language_server_psalm.enabled"] = false,
+		-- 	},
+		-- 	handlers = {
+		-- 		['textDocument/publishDiagnostics'] = function() end
+		-- 	},
+		-- 	capabilities = capabilities,
+		-- })
 
 		-- Vue, JavaScript, TypeScript
 		require('lspconfig').volar.setup({
@@ -186,21 +134,7 @@ return {
 		-- Emmet
 		require('lspconfig').emmet_ls.setup({
 			capabilities = capabilities,
-			filetypes = {
-				"css",
-				"php",
-				"eruby",
-				"html",
-				"javascript",
-				"javascriptreact",
-				"less",
-				"sass",
-				"scss",
-				"svelte",
-				"pug",
-				"typescriptreact",
-				"vue",
-			},
+			filetypes = { "css", "php", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
 			init_options = {
 				html = {
 					options = {
@@ -211,65 +145,65 @@ return {
 		})
 
 		-- null-ls
-		local null_ls = require('null-ls')
-		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-		null_ls.setup({
-			temp_dir = '/tmp',
-			sources = {
-				-- null_ls.builtins.diagnostics.eslint_d.with({
-				-- 	condition = function(utils)
-				-- 		return utils.root_has_file({ '.eslintrc.js' })
-				-- 	end,
-				-- }),
-				--
-				-- null_ls.builtins.diagnostics.trail_space.with({ disabled_filetypes = { 'NvimTree' } }),
-				--
-				-- null_ls.builtins.formatting.eslint_d.with({
-				-- 	condition = function(utils)
-				-- 		return utils.root_has_file({ '.eslintrc.js', '.eslintrc.json' })
-				-- 	end,
-				-- }),
+		-- local null_ls = require('null-ls')
+		-- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+		-- null_ls.setup({
+		-- 	temp_dir = '/tmp',
+		-- 	sources = {
+		-- null_ls.builtins.diagnostics.eslint_d.with({
+		-- 	condition = function(utils)
+		-- 		return utils.root_has_file({ '.eslintrc.js' })
+		-- 	end,
+		-- }),
+		--
+		-- null_ls.builtins.diagnostics.trail_space.with({ disabled_filetypes = { 'NvimTree' } }),
+		--
+		-- null_ls.builtins.formatting.eslint_d.with({
+		-- 	condition = function(utils)
+		-- 		return utils.root_has_file({ '.eslintrc.js', '.eslintrc.json' })
+		-- 	end,
+		-- }),
 
-				-- Custom rules https://mlocati.github.io/php-cs-fixer-configurator/#version:3.51
-				-- Documentation https://laravel.com/docs/11.x/pint
-				-- null_ls.builtins.formatting.pint.with({
-				-- 	condition = function(utils)
-				-- 		return utils.root_has_file({ 'vendor/bin/pint' })
-				-- 	end,
-				-- }),
-				--
-				-- null_ls.builtins.formatting.prettier.with({
-				-- 	extra_args = { "--plugin-search-dir=." },
-				-- 	filetypes = {
-				-- 		"javascript",
-				-- 		"css",
-				-- 		"php"
-				-- 	},
-				-- 	condition = function(utils)
-				-- 		return utils.root_has_file({
-				-- 			'.prettierrc',
-				-- 			'.prettierrc.json',
-				-- 			'.prettierrc.yml',
-				-- 			'.prettierrc.js',
-				-- 			'prettier.config.js',
-				-- 		})
-				-- 	end,
-				-- 	prefer_local = true,
-				-- }),
-			},
-			on_attach = function(client, bufnr)
-				if client.supports_method("textDocument/formatting") then
-					vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						group = augroup,
-						buffer = bufnr,
-						callback = function()
-							vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 5000 })
-						end,
-					})
-				end
-			end,
-		})
+		-- Custom rules https://mlocati.github.io/php-cs-fixer-configurator/#version:3.51
+		-- Documentation https://laravel.com/docs/11.x/pint
+		-- null_ls.builtins.formatting.pint.with({
+		-- 	condition = function(utils)
+		-- 		return utils.root_has_file({ 'vendor/bin/pint' })
+		-- 	end,
+		-- }),
+		--
+		-- null_ls.builtins.formatting.prettier.with({
+		-- 	extra_args = { "--plugin-search-dir=." },
+		-- 	filetypes = {
+		-- 		"javascript",
+		-- 		"css",
+		-- 		"php"
+		-- 	},
+		-- 	condition = function(utils)
+		-- 		return utils.root_has_file({
+		-- 			'.prettierrc',
+		-- 			'.prettierrc.json',
+		-- 			'.prettierrc.yml',
+		-- 			'.prettierrc.js',
+		-- 			'prettier.config.js',
+		-- 		})
+		-- 	end,
+		-- 	prefer_local = true,
+		-- }),
+		-- 	},
+		-- 	on_attach = function(client, bufnr)
+		-- 		if client.supports_method("textDocument/formatting") then
+		-- 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		-- 			vim.api.nvim_create_autocmd("BufWritePre", {
+		-- 				group = augroup,
+		-- 				buffer = bufnr,
+		-- 				callback = function()
+		-- 					vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 5000 })
+		-- 				end,
+		-- 			})
+		-- 		end
+		-- 	end,
+		-- })
 
 		-- Keymaps
 		vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')

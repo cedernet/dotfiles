@@ -19,9 +19,7 @@ require("lazy").setup(
 		{ import = 'user.plugins.monokai-pro' },
 		-- Add, change, and delete surrounding text.
 		-- https://github.com/tpope/vim-surround
-		{ 'tpope/vim-surround' },
-		-- Allow plugins to enable repeating of commands.
-		{ 'tpope/vim-repeat' },
+		-- { 'tpope/vim-surround' },
 		-- Jump to the last location when opening a file.
 		{ 'farmergreg/vim-lastplace' },
 		-- Automatically set the working directory to the project root.
@@ -60,16 +58,14 @@ require("lazy").setup(
 		{ import = 'user.plugins.phpactor' },
 		-- Show overview of code on page
 		{ import = 'user.plugins.aerial' },
-		-- Sublime style multicursor
-		-- { import = 'user.plugins.multicursors' },
-		-- PHP docblocks
-		{ 'brett-griffin/phpdocblocks.vim' },
 		-- Better comments
 		{ import = 'user.plugins.todo-comments' },
 		-- Easier to use marks/bookmarks
 		{ import = 'user.plugins.marks' },
 		-- Jump around the file
 		{ import = 'user.plugins.flash' },
+		-- Generate docblocks
+		{ import = 'user.plugins.neogen'},
 		-- Testing a plugin
 		-- {
 		-- 	dir = '/Users/ebbec/dev/nvim/example.nvim',
