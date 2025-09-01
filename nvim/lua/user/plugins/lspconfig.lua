@@ -62,6 +62,31 @@ return {
 			capabilities = capabilities
 		})
 
+		-- Laravel_ls
+		local lspconfig = require('lspconfig')
+		local util = require('lspconfig.util')
+
+		lspconfig.laravel_ls.setup({
+			-- Don’t attach to random single PHP files
+			single_file_support = false,
+
+			root_dir = function(fname)
+				-- start from composer.json/.git and walk up
+				local root = util.root_pattern('composer.json', '.git')(fname)
+				if not root then return nil end
+
+				-- Laravel hallmark files
+				local artisan = util.path.join(root, 'artisan')
+				local bootstrap_app = util.path.join(root, 'bootstrap', 'app.php')
+				if util.path.is_file(artisan) or util.path.is_file(bootstrap_app) then
+					return root
+				end
+
+				return nil -- not Laravel don’t start laravel_ls
+			end,
+		})
+
+
 		-- require('lspconfig').phpactor.setup({
 		-- 	on_attach = function(client, bufnr)
 		-- 		client.server_capabilities.completionProvider = false
@@ -132,17 +157,17 @@ return {
 		})
 
 		-- Emmet
-		require('lspconfig').emmet_ls.setup({
-			capabilities = capabilities,
-			filetypes = { "css", "php", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
-			init_options = {
-				html = {
-					options = {
-						["bem.enabled"] = true,
-					}
-				}
-			}
-		})
+		-- require('lspconfig').emmet_ls.setup({
+		-- 	capabilities = capabilities,
+		-- 	filetypes = { "css", "php", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+		-- 	init_options = {
+		-- 		html = {
+		-- 			options = {
+		-- 				["bem.enabled"] = true,
+		-- 			}
+		-- 		}
+		-- 	}
+		-- })
 
 		-- null-ls
 		-- local null_ls = require('null-ls')
