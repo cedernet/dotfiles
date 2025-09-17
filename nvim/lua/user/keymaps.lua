@@ -62,9 +62,6 @@ vim.keymap.set('n', '<C-J>', '<C-D>');
 -- markz z, goto top, line select, goto bottom, press =, goto z, del mark
 vim.keymap.set('n', '<leader>=', 'mzggVG=`z<Esc>:delm z<CR>');
 
--- Insert docBlock
-vim.keymap.set('n', '<leader>pd', ':PHPDocBlocks<cr>')
-
 -- Open terminal
 vim.api.nvim_set_keymap("n", "<leader>tt", ":split<CR>:terminal<CR>", { noremap = true, silent = true })
 
