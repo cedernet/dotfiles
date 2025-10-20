@@ -27,7 +27,7 @@ return {
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		-- PHP
-		require('lspconfig').intelephense.setup({
+		vim.lsp.config('intelephense', {
 			commands = {
 				IntelephenseIndex = {
 					function()
@@ -61,12 +61,12 @@ return {
 			end,
 			capabilities = capabilities
 		})
+		vim.lsp.enable('intelephense');
 
 		-- Laravel_ls
-		local lspconfig = require('lspconfig')
 		local util = require('lspconfig.util')
 
-		lspconfig.laravel_ls.setup({
+		vim.lsp.config('laravel_ls', {
 			-- Don’t attach to random single PHP files
 			single_file_support = false,
 
@@ -85,37 +85,10 @@ return {
 				return nil -- not Laravel don’t start laravel_ls
 			end,
 		})
-
-
-		-- require('lspconfig').phpactor.setup({
-		-- 	on_attach = function(client, bufnr)
-		-- 		client.server_capabilities.completionProvider = false
-		-- 		client.server_capabilities.hoverProvider = false
-		-- 		client.server_capabilities.implementationProvider = false
-		-- 		client.server_capabilities.referencesProvider = false
-		-- 		client.server_capabilities.renameProvider = false
-		-- 		client.server_capabilities.selectionRangeProvider = false
-		-- 		client.server_capabilities.signatureHelpProvider = false
-		-- 		client.server_capabilities.typeDefinitionProvider = false
-		-- 		client.server_capabilities.workspaceSymbolProvider = false
-		-- 		client.server_capabilities.definitionProvider = false
-		-- 		client.server_capabilities.documentHighlightProvider = false
-		-- 		client.server_capabilities.documentSymbolProvider = false
-		-- 		client.server_capabilities.documentFormattingProvider = false
-		-- 		client.server_capabilities.documentRangeFormattingProvider = false
-		-- 	end,
-		-- 	init_options = {
-		-- 		["language_server_phpstan.enabled"] = false,
-		-- 		["language_server_psalm.enabled"] = false,
-		-- 	},
-		-- 	handlers = {
-		-- 		['textDocument/publishDiagnostics'] = function() end
-		-- 	},
-		-- 	capabilities = capabilities,
-		-- })
+		vim.lsp.enable('laravel_ls');
 
 		-- Vue, JavaScript, TypeScript
-		require('lspconfig').volar.setup({
+		vim.lsp.config('volar', {
 			on_attach = function(client, bufnr)
 				client.server_capabilities.documentFormattingProvider = false
 				client.server_capabilities.documentRangeFormattingProvider = false
@@ -125,8 +98,9 @@ return {
 			end,
 			capabilities = capabilities,
 		})
+		vim.lsp.enable('volar');
 
-		require('lspconfig').ts_ls.setup {
+		vim.lsp.config('ts_ls', {
 			init_options = {
 				plugins = {
 					{
@@ -141,13 +115,17 @@ return {
 				"typescript",
 				"vue",
 			},
-		}
+		})
+		vim.lsp.enable('ts_ls');
 
 		-- Tailwind CSS
-		require('lspconfig').tailwindcss.setup({ capabilities = capabilities })
+		vim.lsp.config('tailwindcss', {
+			capabilities = capabilities
+		})
+		vim.lsp.enable('tailwindcss');
 
 		-- JSON
-		require('lspconfig').jsonls.setup({
+		vim.lsp.config('jsonls', {
 			capabilities = capabilities,
 			settings = {
 				json = {
@@ -155,80 +133,7 @@ return {
 				},
 			},
 		})
-
-		-- Emmet
-		-- require('lspconfig').emmet_ls.setup({
-		-- 	capabilities = capabilities,
-		-- 	filetypes = { "css", "php", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
-		-- 	init_options = {
-		-- 		html = {
-		-- 			options = {
-		-- 				["bem.enabled"] = true,
-		-- 			}
-		-- 		}
-		-- 	}
-		-- })
-
-		-- null-ls
-		-- local null_ls = require('null-ls')
-		-- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-		-- null_ls.setup({
-		-- 	temp_dir = '/tmp',
-		-- 	sources = {
-		-- null_ls.builtins.diagnostics.eslint_d.with({
-		-- 	condition = function(utils)
-		-- 		return utils.root_has_file({ '.eslintrc.js' })
-		-- 	end,
-		-- }),
-		--
-		-- null_ls.builtins.diagnostics.trail_space.with({ disabled_filetypes = { 'NvimTree' } }),
-		--
-		-- null_ls.builtins.formatting.eslint_d.with({
-		-- 	condition = function(utils)
-		-- 		return utils.root_has_file({ '.eslintrc.js', '.eslintrc.json' })
-		-- 	end,
-		-- }),
-
-		-- Custom rules https://mlocati.github.io/php-cs-fixer-configurator/#version:3.51
-		-- Documentation https://laravel.com/docs/11.x/pint
-		-- null_ls.builtins.formatting.pint.with({
-		-- 	condition = function(utils)
-		-- 		return utils.root_has_file({ 'vendor/bin/pint' })
-		-- 	end,
-		-- }),
-		--
-		-- null_ls.builtins.formatting.prettier.with({
-		-- 	extra_args = { "--plugin-search-dir=." },
-		-- 	filetypes = {
-		-- 		"javascript",
-		-- 		"css",
-		-- 		"php"
-		-- 	},
-		-- 	condition = function(utils)
-		-- 		return utils.root_has_file({
-		-- 			'.prettierrc',
-		-- 			'.prettierrc.json',
-		-- 			'.prettierrc.yml',
-		-- 			'.prettierrc.js',
-		-- 			'prettier.config.js',
-		-- 		})
-		-- 	end,
-		-- 	prefer_local = true,
-		-- }),
-		-- 	},
-		-- 	on_attach = function(client, bufnr)
-		-- 		if client.supports_method("textDocument/formatting") then
-		-- 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-		-- 			vim.api.nvim_create_autocmd("BufWritePre", {
-		-- 				group = augroup,
-		-- 				buffer = bufnr,
-		-- 				callback = function()
-		-- 					vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 5000 })
-		-- 				end,
-		-- 			})
-		-- 		end
-		-- 	end,
-		-- })
+		vim.lsp.enable('jsonls');
 
 		-- Keymaps
 		vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
