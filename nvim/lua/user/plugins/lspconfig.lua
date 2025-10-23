@@ -87,19 +87,7 @@ return {
 		})
 		vim.lsp.enable('laravel_ls');
 
-		-- Vue, JavaScript, TypeScript
-		vim.lsp.config('volar', {
-			on_attach = function(client, bufnr)
-				client.server_capabilities.documentFormattingProvider = false
-				client.server_capabilities.documentRangeFormattingProvider = false
-				-- if client.server_capabilities.inlayHintProvider then
-				-- 	vim.lsp.buf.inlay_hint(bufnr, true)
-				-- end
-			end,
-			capabilities = capabilities,
-		})
-		vim.lsp.enable('volar');
-
+		-- JavaScript, TypeScript
 		vim.lsp.config('ts_ls', {
 			init_options = {
 				plugins = {
