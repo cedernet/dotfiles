@@ -107,10 +107,10 @@ return {
 		vim.lsp.enable('ts_ls');
 
 		-- Tailwind CSS
-		vim.lsp.config('tailwindcss', {
-			capabilities = capabilities
-		})
-		vim.lsp.enable('tailwindcss');
+		-- vim.lsp.config('tailwindcss', {
+		-- 	capabilities = capabilities
+		-- })
+		-- vim.lsp.enable('tailwindcss');
 
 		-- JSON
 		vim.lsp.config('jsonls', {
@@ -130,7 +130,7 @@ return {
 		vim.keymap.set('n', 'gd', ':Telescope lsp_definitions<CR>')
 		vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.definition()<CR>')
 		vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-		vim.keymap.set('n', 'gi', ':Telescope lsp_implementations<CR>')
+		-- vim.keymap.set('n', 'gi', ':Telescope lsp_implementations<CR>')
 		vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>')
 		vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 		-- vim.keymap.set('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')

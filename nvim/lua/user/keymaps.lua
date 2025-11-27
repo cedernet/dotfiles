@@ -2,6 +2,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Easy repeat macro
+vim.keymap.set("n", "<leader>z", "@@", { noremap = true, desc = "Repeat last macro" })
+
 -- Quickly clear search highlighting.
 vim.keymap.set('n', '<leader>cc', ':nohlsearch<cr>')
 
@@ -48,8 +51,10 @@ vim.api.nvim_set_keymap('n', '>', ']', {})
 vim.keymap.set('n', '<leader>å', ":%s/\\s\\+$//e<CR>")
 
 -- Tab switching easier
-vim.keymap.set('n', '<C-h>', ':bprevious<CR>')
-vim.keymap.set('n', '<C-l>', ':bnext<CR>')
+vim.keymap.set('n', '<C-h>', ':BufferLineCyclePrev<CR>')
+vim.keymap.set('n', '<C-l>', ':BufferLineCycleNext<CR>')
+vim.keymap.set('n', '<leader>hh', ':BufferLineMovePrev<CR>')
+vim.keymap.set('n', '<leader>ll', ':BufferLineMoveNext<CR>')
 
 -- Jump over char in insert mode
 vim.keymap.set('i', '<C-space>', '<right>')
@@ -77,3 +82,6 @@ vim.keymap.set('n', '<C-g>', function()
 	local word = vim.fn.expand('<cword>')
 	vim.cmd('tag ' .. word)
 end)
+
+-- Quick way to format
+vim.keymap.set('n', '<leader>ö', ':Format<CR>');

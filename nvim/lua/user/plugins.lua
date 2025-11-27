@@ -16,7 +16,7 @@ require("lazy").setup(
 		-- Gruvbox-material theme
 		{ import = 'user.plugins.gruvbox-material' },
 		-- Monokai-pro theme
-		-- { import = 'user.plugins.monokai-pro' },
+		{ import = 'user.plugins.monokai-pro' },
 		-- Add, change, and delete surrounding text.
 		-- https://github.com/tpope/vim-surround
 		-- { 'tpope/vim-surround' },
