@@ -19,7 +19,7 @@ require("lazy").setup(
 		{ import = 'user.plugins.monokai-pro' },
 		-- Add, change, and delete surrounding text.
 		-- https://github.com/tpope/vim-surround
-		-- { 'tpope/vim-surround' },
+		{ 'tpope/vim-surround' },
 		-- Jump to the last location when opening a file.
 		{ 'farmergreg/vim-lastplace' },
 		-- Automatically set the working directory to the project root.
