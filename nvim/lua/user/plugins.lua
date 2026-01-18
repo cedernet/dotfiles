@@ -14,9 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(
 	{
 		-- Gruvbox-material theme
-		{ import = 'user.plugins.gruvbox-material' },
+		-- { import = 'user.plugins.gruvbox-material' },
+		-- Other grubbox
+		{ import = 'user.plugins.gruvbox' },
 		-- Monokai-pro theme
-		{ import = 'user.plugins.monokai-pro' },
+		-- { import = 'user.plugins.monokai-pro' },
 		-- Add, change, and delete surrounding text.
 		-- https://github.com/tpope/vim-surround
 		{ 'tpope/vim-surround' },
