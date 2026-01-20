@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(
 	{
 		-- Gruvbox-material theme
-		-- { import = 'user.plugins.gruvbox-material' },
+		{ import = 'user.plugins.gruvbox-material' },
 		-- Other grubbox
 		{ import = 'user.plugins.gruvbox' },
 		-- Monokai-pro theme
@@ -70,6 +70,8 @@ require("lazy").setup(
 		{ import = 'user.plugins.neogen'},
 		-- Translate diagnostics with AI
 		{ import = 'user.plugins.wtf' },
+		-- Virtual comments
+		{ import = 'user.plugins.haunt' },
 		-- Testing a plugin
 		-- {
 		-- 	dir = '/Users/ebbec/dev/nvim/example.nvim',
