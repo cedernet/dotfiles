@@ -2,6 +2,12 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = "*.php",
 	callback = function()
 		local file = vim.fn.expand("%")
+
+		-- Skip Blade templates
+		if file:match("%.blade%.php$") then
+			return
+		end
+
 		local root = vim.fn.finddir(".git/..", ".;") or vim.fn.getcwd()
 		local config_path = root .. "/.php-cs-fixer.php"
 

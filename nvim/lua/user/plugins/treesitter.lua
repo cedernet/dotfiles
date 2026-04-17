@@ -1,6 +1,6 @@
 --[[context_commentstring nvim-treesitter module is deprecated, use use require('tsf_context_commentstring').setup {}
 and set vim.g.skip_ts_context_commentstring_module = true to speed up loading instead.
-This feature will be removed in ts_context_commentstring version in the future ]]--
+This feature will be removed in ts_context_commentstring version in the future ]] --
 
 return {
 	'nvim-treesitter/nvim-treesitter',
@@ -13,7 +13,7 @@ return {
 		{
 			'JoosepAlviste/nvim-ts-context-commentstring',
 			opts = {
-				custom_calculation = function (node, language_tree)
+				custom_calculation = function(node, language_tree)
 					if vim.bo.filetype == 'blade' and language_tree._lang ~= 'javascript' then
 						return '{{-- %s --}}'
 					end
@@ -90,25 +90,34 @@ return {
 			},
 		},
 	},
-	config = function (_, opts)
+	config = function(_, opts)
 		require('nvim-treesitter.configs').setup(opts)
 
 		vim.g.skip_ts_context_commentstring_module = true
 
-		-- local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-		-- parser_config.blade = {
-		-- 	install_info = {
-		-- 		url = "https://github.com/EmranMR/tree-sitter-blade",
-		-- 		files = {"src/parser.c"},
-		-- 		branch = "main",
-		-- 	},
-		-- 	filetype = "blade"
-		-- }
-		-- vim.filetype.add({
-		-- 	pattern = {
-		-- 		['.*%.blade%.php'] = 'blade',
-		-- 	},
-		-- })
+		local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+		parser_config.blade = {
+			install_info = {
+				url = "https://github.com/EmranMR/tree-sitter-blade",
+				files = { "src/parser.c" },
+				branch = "main",
+			},
+			filetype = "blade"
+		}
+		vim.filetype.add({
+			pattern = {
+				['.*%.blade%.php'] = 'blade',
+			},
+		})
+
+		local bladeGrp
+		vim.api.nvim_create_augroup("BladeFiltypeRelated", { clear = true })
+		vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+			pattern = "*.blade.php",
+			group = bladeGrp,
+			callback = function()
+				vim.opt.filetype = "blade"
+			end,
+		})
 	end,
 }
-

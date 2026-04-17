@@ -8,7 +8,6 @@ return {
 		'williamboman/mason-lspconfig.nvim',
 		-- For json stuff
 		'b0o/schemastore.nvim',
-		-- { 'nvimtools/none-ls.nvim', dependencies = 'nvim-lua/plenary.nvim' },
 	},
 	config = function()
 		-- Setup Mason to automatically install LSP servers
@@ -68,22 +67,11 @@ return {
 
 		vim.lsp.config('laravel_ls', {
 			-- Don’t attach to random single PHP files
-			single_file_support = false,
-
-			root_dir = function(fname)
-				-- start from composer.json/.git and walk up
-				local root = util.root_pattern('composer.json', '.git')(fname)
-				if not root then return nil end
-
-				-- Laravel hallmark files
-				local artisan = util.path.join(root, 'artisan')
-				local bootstrap_app = util.path.join(root, 'bootstrap', 'app.php')
-				if util.path.is_file(artisan) or util.path.is_file(bootstrap_app) then
-					return root
-				end
-
-				return nil -- not Laravel don’t start laravel_ls
-			end,
+			workspace_required = true,
+			cmd = { "laravel-ls" },
+			filetypes = { "php", "blade" },
+			root_markers = { "artisan" },
+			capabilities = capabilities
 		})
 		vim.lsp.enable('laravel_ls');
 
@@ -113,15 +101,15 @@ return {
 		-- vim.lsp.enable('tailwindcss');
 
 		-- JSON
-		vim.lsp.config('jsonls', {
-			capabilities = capabilities,
-			settings = {
-				json = {
-					schemas = require('schemastore').json.schemas(),
-				},
-			},
-		})
-		vim.lsp.enable('jsonls');
+		-- vim.lsp.config('jsonls', {
+		-- 	capabilities = capabilities,
+		-- 	settings = {
+		-- 		json = {
+		-- 			schemas = require('schemastore').json.schemas(),
+		-- 		},
+		-- 	},
+		-- })
+		-- vim.lsp.enable('jsonls');
 
 		-- Keymaps
 		vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
