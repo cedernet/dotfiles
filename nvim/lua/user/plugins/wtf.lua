@@ -17,7 +17,7 @@ return {
 			desc = "Debug diagnostic with AI",
 		},
 		{
-			"<leader>wf",
+			"<leader>wtf",
 			mode = { "n", "x" },
 			function()
 				require("wtf").fix()
