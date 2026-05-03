@@ -19,9 +19,6 @@ require("lazy").setup(
 		{ import = 'user.plugins.gruvbox' },
 		-- Monokai-pro theme
 		-- { import = 'user.plugins.monokai-pro' },
-		-- Add, change, and delete surrounding text.
-		-- https://github.com/tpope/vim-surround
-		{ 'tpope/vim-surround' },
 		-- Jump to the last location when opening a file.
 		{ 'farmergreg/vim-lastplace' },
 		-- Automatically set the working directory to the project root.
@@ -72,7 +69,7 @@ require("lazy").setup(
 		-- 26-05-03: Disabled, because doesn't support new treesitter. Check later
 		-- { import = 'user.plugins.neogen'},
 		-- Translate diagnostics with AI
-		{ import = 'user.plugins.wtf' },
+		-- { import = 'user.plugins.wtf' },
 		-- Virtual comments
 		{ import = 'user.plugins.haunt' },
 		-- Arduino IDE

@@ -1,4 +1,6 @@
 return {
+	-- 2026-05-03 Again considered removing this, but it looks cool.
+	-- Should try to use it for a while.
 	"TheNoeTrevino/haunt.nvim",
 	-- default config: change to your liking, or remove it to use defaults
 	---@class HauntConfig
@@ -18,7 +20,7 @@ return {
 	-- recommended keymaps, with a helpful prefix alias
 	init = function()
 		local haunt = require("haunt.api")
-		-- local haunt_picker = require("haunt.picker")
+		local haunt_picker = require("haunt.picker")
 		local map = vim.keymap.set
 		local prefix = "<leader>h"
 
@@ -53,8 +55,8 @@ return {
 		end, { desc = "Next bookmark" })
 
 		-- picker
-		-- map("n", prefix .. "l", function()
-		-- 	haunt_picker.show()
-		-- end, { desc = "Show Picker" })
+		map("n", prefix .. "l", function()
+			haunt_picker.show()
+		end, { desc = "Show Picker" })
 	end,
 }
