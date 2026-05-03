@@ -35,7 +35,7 @@ require("lazy").setup(
 		-- Split arrays and methods onto multiple lines, or join them back up.
 		{ import = 'user.plugins.treesj' },
 		-- Improved syntax highlighting
-		{ import = 'user.plugins.treesitter' },
+		-- { import = 'user.plugins.treesitter' },
 		-- Fuzzy finder
 		{ import = 'user.plugins.telescope' },
 		-- File tree
@@ -54,6 +54,8 @@ require("lazy").setup(
 		{ 'tpope/vim-fugitive', dependencies = 'tpope/vim-rhubarb' },
 		-- Completion
 		{ import = 'user.plugins.cmp' },
+		-- Newer completion (currently only for Arduino)
+		{ import = 'user.plugins.blink' },
 		-- Language Server Protocol.
 		{ import = 'user.plugins.lspconfig' },
 		-- PHP Refactoring Tools
@@ -67,11 +69,14 @@ require("lazy").setup(
 		-- Jump around the file
 		{ import = 'user.plugins.flash' },
 		-- Generate docblocks
-		{ import = 'user.plugins.neogen'},
+		-- 26-05-03: Disabled, because doesn't support new treesitter. Check later
+		-- { import = 'user.plugins.neogen'},
 		-- Translate diagnostics with AI
 		{ import = 'user.plugins.wtf' },
 		-- Virtual comments
 		{ import = 'user.plugins.haunt' },
+		-- Arduino IDE
+		{ import = 'user.plugins.arduino' },
 		-- Testing a plugin
 		-- {
 		-- 	dir = '/Users/ebbec/dev/nvim/example.nvim',

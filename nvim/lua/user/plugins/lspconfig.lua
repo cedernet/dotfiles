@@ -63,7 +63,7 @@ return {
 		vim.lsp.enable('intelephense');
 
 		-- Laravel_ls
-		local util = require('lspconfig.util')
+		-- local util = require('lspconfig.util')
 
 		vim.lsp.config('laravel_ls', {
 			-- Don’t attach to random single PHP files
@@ -93,6 +93,24 @@ return {
 			},
 		})
 		vim.lsp.enable('ts_ls');
+
+		-- Arduino
+		local home = os.getenv("HOME")
+
+		vim.lsp.config("arduino_language_server", {
+			cmd = {
+				"arduino-language-server",
+				"-clangd", "/usr/bin/clangd",
+				"-cli", "/opt/homebrew/bin/arduino-cli",
+				"-cli-config", home .. "/Library/Arduino15/arduino-cli.yaml",
+				"-fqbn", "arduino:renesas_uno:unor4wifi",
+			},
+			filetypes = { "arduino" },
+			root_markers = { "sketch.yaml", "*.ino" },
+			capabilities = require("blink.cmp").get_lsp_capabilities(),
+
+		})
+		vim.lsp.enable("arduino_language_server")
 
 		-- Tailwind CSS
 		-- vim.lsp.config('tailwindcss', {
