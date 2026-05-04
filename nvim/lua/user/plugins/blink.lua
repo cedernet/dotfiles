@@ -3,9 +3,6 @@ return {
 
 	version = '1.*',
 	opts = {
-		enabled = function()
-			return vim.bo.filetype == "arduino"
-		end,
 		-- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
 		-- 'super-tab' for mappings similar to vscode (tab to accept)
 		-- 'enter' for enter to accept
@@ -18,7 +15,14 @@ return {
 		-- C-k: Toggle signature help (if signature.enabled = true)
 		--
 		-- See :h blink-cmp-config-keymap for defining your own keymap
-		keymap = { preset = 'enter' },
+		keymap = {
+			preset = 'super-tab',
+			["<C-Space>"] = { "fallback" },
+		},
+
+		snippets = {
+			preset = "luasnip",
+		},
 
 		appearance = {
 			-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'

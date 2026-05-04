@@ -1,6 +1,6 @@
 -- https://github.com/nvim-telescope/telescope.nvim
 return {
-	'nvim-telescope/telescope.nvim', tag = '0.1.8',
+	'nvim-telescope/telescope.nvim', version = '*',
 	dependencies = {
 		'nvim-lua/plenary.nvim',
 		'nvim-tree/nvim-web-devicons',
@@ -21,7 +21,7 @@ return {
 
 		require('telescope').setup({
 			defaults = {
-				path_display = { truncate = 1 },
+				path_display = { "truncate" },
 				prompt_prefix = '   ',
 				selection_caret = '  ',
 				layout_config = {
@@ -83,5 +83,6 @@ return {
 		})
 
 		require('telescope').load_extension('fzf')
+		require('telescope').load_extension("live_grep_args")
 	end,
 }

@@ -15,10 +15,6 @@ require("lazy").setup(
 	{
 		-- Gruvbox-material theme
 		{ import = 'user.plugins.gruvbox-material' },
-		-- Other grubbox
-		{ import = 'user.plugins.gruvbox' },
-		-- Monokai-pro theme
-		-- { import = 'user.plugins.monokai-pro' },
 		-- Jump to the last location when opening a file.
 		{ 'farmergreg/vim-lastplace' },
 		-- Automatically set the working directory to the project root.
@@ -33,6 +29,7 @@ require("lazy").setup(
 		{ import = 'user.plugins.treesj' },
 		-- Improved syntax highlighting
 		-- { import = 'user.plugins.treesitter' },
+		{ import = 'user.plugins.treesitter-min' },
 		-- Fuzzy finder
 		{ import = 'user.plugins.telescope' },
 		-- File tree
@@ -49,9 +46,9 @@ require("lazy").setup(
 		{ import = 'user.plugins.gitsigns' },
 		-- Git commands. https://github.com/tpope/vim-fugitive
 		{ 'tpope/vim-fugitive', dependencies = 'tpope/vim-rhubarb' },
-		-- Completion
-		{ import = 'user.plugins.cmp' },
-		-- Newer completion (currently only for Arduino)
+		-- Utilize my snippets in nvim/snippets
+		{ import = 'user.plugins.luasnip' },
+		-- Code completion
 		{ import = 'user.plugins.blink' },
 		-- Language Server Protocol.
 		{ import = 'user.plugins.lspconfig' },
