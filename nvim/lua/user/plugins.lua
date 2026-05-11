@@ -15,6 +15,10 @@ require("lazy").setup(
 	{
 		-- Gruvbox-material theme
 		{ import = 'user.plugins.gruvbox-material' },
+		-- Good light theme for general writing parchment-manuscript
+		{ import = 'user.plugins.parchment'},
+		-- Theme like gruvbox, but more contrast
+		{ import = 'user.plugins.bamboo'},
 		-- Jump to the last location when opening a file.
 		{ 'farmergreg/vim-lastplace' },
 		-- Automatically set the working directory to the project root.
@@ -53,7 +57,7 @@ require("lazy").setup(
 		-- Language Server Protocol.
 		{ import = 'user.plugins.lspconfig' },
 		-- PHP Refactoring Tools
-		{ import = 'user.plugins.phpactor' },
+		-- { import = 'user.plugins.phpactor' },
 		-- Show overview of code on page
 		{ import = 'user.plugins.aerial' },
 		-- Better comments
@@ -65,8 +69,6 @@ require("lazy").setup(
 		-- Generate docblocks
 		-- 26-05-03: Disabled, because doesn't support new treesitter. Check later
 		-- { import = 'user.plugins.neogen'},
-		-- Translate diagnostics with AI
-		-- { import = 'user.plugins.wtf' },
 		-- Virtual comments
 		{ import = 'user.plugins.haunt' },
 		-- Arduino IDE
