@@ -68,7 +68,7 @@ require("lazy").setup(
 		{ import = 'user.plugins.flash' },
 		-- Generate docblocks
 		-- 26-05-03: Disabled, because doesn't support new treesitter. Check later
-		-- { import = 'user.plugins.neogen'},
+		{ import = 'user.plugins.neogen'},
 		-- Virtual comments
 		{ import = 'user.plugins.haunt' },
 		-- Arduino IDE
