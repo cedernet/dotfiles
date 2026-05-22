@@ -4,6 +4,6 @@ return {
 	priority = 900,
 	config = function()
 		require('bamboo').setup()
-		-- require('bamboo').load()
+		require('bamboo').load()
 	end,
 }
