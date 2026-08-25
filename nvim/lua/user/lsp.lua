@@ -1,1 +1,6 @@
 require('user/lsp/lua_ls')
+require('user/lsp/intelephense')
+require('user/lsp/ts_ls')
+require('user/lsp/laravel_ls')
+require('user/lsp/arduino')
+-- require('user/lsp/tailwindcss')
